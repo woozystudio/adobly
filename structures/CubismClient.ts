@@ -1,5 +1,5 @@
 import { Client, Collection, Events, GatewayIntentBits, REST, Routes } from "discord.js";
-import { Command, CommandOptions } from "./builders/CommandBuilder";
+import { Command, CommandInteractionOptions } from "./builders/CommandBuilder";
 import dotenv from "dotenv";
 import process from "node:process";
 import fs from "fs";
@@ -8,7 +8,7 @@ import path from "node:path";
 export class CubismClient {
 	#client;
 
-	public commands: Collection<string, Command<CommandOptions>> = new Collection();
+	public commands: Collection<string, Command<CommandInteractionOptions>> = new Collection();
 
 	public constructor() {
 		this.#client = new Client({
@@ -38,7 +38,7 @@ export class CubismClient {
 		for (const file of files) {
 			const path = `../commands/${file}`;
 			const module = require(path);
-			const command: Command<CommandOptions> = new module.default();
+			const command: Command<CommandInteractionOptions> = new module.default();
 
 			if (!command || !command.name) continue;
 
@@ -68,7 +68,7 @@ export class CubismClient {
 		});
 	}
 
-	private convertCommandsInJSON(commands: Collection<string, Command<CommandOptions>>): object[] {
+	private convertCommandsInJSON(commands: Collection<string, Command<CommandInteractionOptions>>): object[] {
 		const data: object[] = [];
 
 		commands.forEach((command) => {
