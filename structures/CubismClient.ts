@@ -28,9 +28,7 @@ export class CubismClient {
 	}
 
 	public start() {
-		this.#client.login(process.env.TOKEN).then(() => {
-			console.log(`Logged as ${this.#client.user?.tag}`);
-		});
+		this.#client.login(process.env.TOKEN);
 	}
 
 	async registerCommands() {
@@ -52,11 +50,13 @@ export class CubismClient {
 		await rest.put(Routes.applicationGuildCommands(process.env.CLIENT_ID!, process.env.GUILD_ID!), {
 			body: this.convertCommandsInJSON(this.commands),
 		});
-
-		console.log(`✅ ${this.commands.size} comandos registrados exitosamente.`);
 	}
 
 	async createEvents() {
+		this.#client.on(Events.ClientReady, () => {
+			console.log(`Logged as ${this.#client.user?.tag}`);
+		});
+
 		this.#client.on(Events.InteractionCreate, (interaction) => {
 			if (!interaction.isChatInputCommand()) return;
 
