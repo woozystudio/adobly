@@ -1,22 +1,7 @@
-import { Client, GatewayIntentBits } from "discord.js";
-import { config } from "dotenv";
-import process from "node:process";
+import bot from "./structures/CubismClient.js";
 
-const client = new Client({
-	intents: [
-		GatewayIntentBits.Guilds,
-		GatewayIntentBits.GuildMembers,
-		GatewayIntentBits.GuildMessages,
-		GatewayIntentBits.MessageContent,
-	],
-});
-
-config();
-
-async function start() {
-	client.login(process.env.TOKEN).then(() => {
-		console.log(`Logged as ${client.user?.tag}`);
-	});
+try {
+	await bot.start();
+} catch (error) {
+	console.error(error);
 }
-
-start();
