@@ -1,0 +1,35 @@
+{
+	"name": "woozystudio-app",
+	"version": "0.1.0",
+	"description": "",
+	"scripts": {
+		"build:clean": "del-cli dist/*",
+		"build:check": "tsc --noEmit",
+		"build:compile": "tsc --build",
+		"build": "npm run build:clean && npm run build:check && npm run build:compile",
+		"lint": "prettier --check . && oxlint",
+		"format": "prettier --write .",
+		"start": "npm run build && node --enable-source-maps dist/index.js"
+	},
+	"type": "module",
+	"keywords": [],
+	"author": "WoozyStudio <woozystudiocontact@gmail.com>",
+	"license": "UNLICENSED",
+	"private": true,
+	"dependencies": {
+		"del-cli": "6.0.0",
+		"discord-api-types": "0.37.120",
+		"discord.js": "14.18.0",
+		"dotenv": "16.5.0",
+		"oxlint": "0.16.6",
+		"prettier": "3.5.3"
+	},
+	"devDependencies": {
+		"@types/node": "22.14.1",
+		"typescript": "5.8.3"
+	},
+	"engines": {
+		"node": ">=18.0.0"
+	},
+	"packageManager": "npm@11.1.0"
+}
