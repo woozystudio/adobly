@@ -12,7 +12,7 @@ export class PingCommand extends Command<CommandOptions> {
 	}
 
 	override execute(interaction: ChatInputCommandInteraction) {
-		interaction.reply(`${CubismClient.client.ws.ping}`);
+		interaction.reply(`\`${CubismClient.client.ws.ping}ms\``);
 	}
 }
 
