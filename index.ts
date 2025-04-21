@@ -1,7 +1,8 @@
 import bot from "./structures/CubismClient.js";
 
 try {
-	await bot.start();
+	bot.start();
+	bot.registerCommands();
 } catch (error) {
 	console.error(error);
 }
