@@ -8,6 +8,7 @@ export class PingCommand extends Command<CommandInteractionOptions> {
 			name: "ping",
 			description: "Bot latency",
 			type: ApplicationCommandType.ChatInput,
+			testOnly: false,
 		});
 	}
 
