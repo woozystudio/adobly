@@ -1,4 +1,4 @@
-import { Client, Collection, GatewayIntentBits, REST, Routes } from "discord.js";
+import { Client, Collection, Events, GatewayIntentBits, REST, Routes } from "discord.js";
 import { Command, CommandOptions } from "./builders/CommandBuilder";
 import dotenv from "dotenv";
 import process from "node:process";
@@ -54,6 +54,18 @@ export class CubismClient {
 		});
 
 		console.log(`✅ ${this.commands.size} comandos registrados exitosamente.`);
+	}
+
+	async createEvents() {
+		this.#client.on(Events.InteractionCreate, (interaction) => {
+			if (!interaction.isChatInputCommand()) return;
+
+			const command = this.commands.get(interaction.commandName);
+
+			if (!command) return;
+
+			return command.execute(interaction);
+		});
 	}
 
 	private convertCommandsInJSON(commands: Collection<string, Command<CommandOptions>>): object[] {
