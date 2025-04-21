@@ -11,7 +11,6 @@
 		"format": "prettier --write .",
 		"start": "npm run build && node --enable-source-maps dist/index.js"
 	},
-	"type": "module",
 	"keywords": [],
 	"author": "WoozyStudio <woozystudiocontact@gmail.com>",
 	"license": "UNLICENSED",
