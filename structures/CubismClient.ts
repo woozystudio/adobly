@@ -1,8 +1,14 @@
-import { Client, GatewayIntentBits } from "discord.js";
+import { Client, Collection, GatewayIntentBits, REST, Routes } from "discord.js";
+import { Command, CommandOptions } from "./builders/CommandBuilder";
 import dotenv from "dotenv";
+import process from "node:process";
+import fs from "fs";
+import path from "node:path";
 
 export class CubismClient {
 	#client;
+
+	public commands: Collection<string, Command<CommandOptions>> = new Collection();
 
 	public constructor() {
 		this.#client = new Client({
@@ -25,6 +31,43 @@ export class CubismClient {
 		this.#client.login(process.env.TOKEN).then(() => {
 			console.log(`Logged as ${this.#client.user?.tag}`);
 		});
+	}
+
+	async registerCommands() {
+		const commandsPath = path.join(__dirname, "../commands");
+		const files = fs.readdirSync(commandsPath).filter((file) => file.endsWith(".js"));
+
+		for (const file of files) {
+			const path = `../commands/${file}`;
+			const module = require(path);
+			const command: Command<CommandOptions> = new module.default();
+
+			if (!command || !command.name) continue;
+
+			this.commands.set(command.name, command);
+		}
+
+		const rest = new REST({ version: "10" }).setToken(process.env.TOKEN!);
+
+		await rest.put(Routes.applicationGuildCommands(process.env.CLIENT_ID!, process.env.GUILD_ID!), {
+			body: this.convertCommandsInJSON(this.commands),
+		});
+
+		console.log(`✅ ${this.commands.size} comandos registrados exitosamente.`);
+	}
+
+	private convertCommandsInJSON(commands: Collection<string, Command<CommandOptions>>): object[] {
+		const data: object[] = [];
+
+		commands.forEach((command) => {
+			data.push({
+				name: command.name,
+				description: command.description,
+				type: command.type,
+			});
+		});
+
+		return data;
 	}
 }
 
