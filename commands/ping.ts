@@ -1,6 +1,6 @@
 import { ApplicationCommandType, ChatInputCommandInteraction } from "discord.js";
 import CubismClient from "../structures/CubismClient.js";
-import { Command, CommandInteractionOptions } from "../structures/builders/CommandBuilder.js";
+import { Command, CommandInteractionOptions } from "../structures/builders/Command.js";
 
 export class PingCommand extends Command<CommandInteractionOptions> {
 	constructor() {

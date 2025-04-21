@@ -1,5 +1,5 @@
 import { Client, Collection, Events, GatewayIntentBits, REST, Routes } from "discord.js";
-import { Command, CommandInteractionOptions } from "./builders/CommandBuilder";
+import { Command, CommandInteractionOptions } from "./builders/Command";
 import dotenv from "dotenv";
 import process from "node:process";
 import fs from "fs";
