@@ -17,11 +17,15 @@
 	"license": "UNLICENSED",
 	"private": true,
 	"dependencies": {
+		"@discordjs/rest": "2.4.3",
 		"del-cli": "6.0.0",
 		"discord-api-types": "0.37.120",
 		"discord.js": "14.18.0",
 		"dotenv": "16.5.0",
+		"fs": "0.0.1-security",
+		"glob": "11.0.1",
 		"oxlint": "0.16.6",
+		"path": "0.12.7",
 		"prettier": "3.5.3"
 	},
 	"devDependencies": {
