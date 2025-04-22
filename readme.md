@@ -6,6 +6,10 @@ As of today, this bot is under development and the code is not considered stable
 
 In the future it is planned to make this bot open source so that more people can collaborate on it and grow this nice project. It is also planned to create a documentation for the bot features, as well as for the code.
 
+## Version
+
+Current version: v0.3.0
+
 ## Author
 
 **WoozyStudio App** © [WoozyStudio](https://woozystudio.com).  
