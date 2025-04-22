@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo (fetch all branches)
+      - name: Checkout repo
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -32,17 +32,13 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Update version in README
+      - name: Update version in README.md
         run: |
           VERSION=${{ github.event.release.tag_name }}
-          if grep -q '^Current version: ' README.md; then
-            sed -i "s/^Current version: .*/Current version: ${VERSION}/" README.md
-          else
-            echo -e "\nCurrent version: ${VERSION}" >> README.md
-          fi
+          sed -i "s/^Current version: .*/Current version: ${VERSION}/" README.md
 
       - name: Commit and push changes
         run: |
           git add README.md
-          git commit -m "chore: update readme with release version ${VERSION}"
+          git commit -m "chore: update README with release version ${VERSION}"
           git push origin ${{ steps.default_branch.outputs.branch }}
