@@ -1,0 +1,10 @@
+# Generated output
+dist/
+
+# IDE
+.vscode/
+
+# Miscellaneous
+readme.md
+.github
+.git
