@@ -10,6 +10,7 @@
 		"lint": "prettier --check . && oxlint",
 		"format": "prettier --write .",
 		"start": "npm run build && node --enable-source-maps dist/index.js",
+		"watch": "tsc-watch --onSuccess \"npm run start\"",
 		"docker:build": "docker build -t woozystudio-app .",
 		"docker:start": "docker compose up -d",
 		"docker:logs": "docker logs -f woozystudio-app",
