@@ -1,4 +1,9 @@
-import { ApplicationCommandOptionType, ApplicationCommandType, ChatInputCommandInteraction } from "discord.js";
+import {
+	ApplicationCommandOptionType,
+	ApplicationCommandType,
+	ChatInputCommandInteraction,
+	MessageFlags,
+} from "discord.js";
 import { Command, CommandInteractionOptions } from "../builders/Command";
 
 export class TimestampCommand extends Command<CommandInteractionOptions> {
@@ -45,7 +50,10 @@ export class TimestampCommand extends Command<CommandInteractionOptions> {
 
 		const dateResult = new Date(`${date} ${time}`).getTime() / 1000;
 
-		await interaction.reply("<t:" + dateResult + ":" + format + ">" + ` - \`<t:${dateResult}:${format}>\``);
+		await interaction.reply({
+			content: "<t:" + dateResult + ":" + format + ">" + ` - \`<t:${dateResult}:${format}>\``,
+			flags: MessageFlags.Ephemeral,
+		});
 	}
 }
 
