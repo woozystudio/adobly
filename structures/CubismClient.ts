@@ -1,9 +1,10 @@
-import { Client, Collection, Events, GatewayIntentBits, REST, Routes } from "discord.js";
+import { Client, ClientEvents, Collection, GatewayIntentBits, REST, Routes } from "discord.js";
 import { Command, CommandInteractionOptions } from "../builders/Command";
 import dotenv from "dotenv";
 import process from "node:process";
 import fs from "fs";
 import path from "node:path";
+import { Event, EventCreatorOptions } from "../builders/Event";
 
 export class CubismClient {
 	#client;
@@ -56,20 +57,22 @@ export class CubismClient {
 		});
 	}
 
-	async createEvents() {
-		this.#client.on(Events.ClientReady, () => {
-			console.log(`Logged as ${this.#client.user?.tag}`);
-		});
+	async registerEvents() {
+		const eventsPath = path.join(__dirname, "../events");
+		const files = fs.readdirSync(eventsPath).filter((file) => file.endsWith(".js"));
 
-		this.#client.on(Events.InteractionCreate, (interaction) => {
-			if (!interaction.isChatInputCommand()) return;
+		for (const file of files) {
+			const path = `../events/${file}`;
+			const module = require(path);
+			const event: Event<EventCreatorOptions> = new module.default();
 
-			const command = this.commands.get(interaction.commandName);
+			if (!event || !event.name) continue;
 
-			if (!command) return;
+			const execute = (...args: any) => event.execute(...args);
 
-			return command.execute(interaction);
-		});
+			if (event.once) this.#client.once(event.name as keyof ClientEvents, execute);
+			else this.#client.on(event.name as keyof ClientEvents, execute);
+		}
 	}
 
 	private convertCommandsInJSON(commands: Collection<string, Command<CommandInteractionOptions>>): object[] {
