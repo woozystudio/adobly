@@ -5,6 +5,7 @@ import process from "node:process";
 import fs from "fs";
 import path from "node:path";
 import { Event, EventCreatorOptions } from "../builders/Event";
+import convertCommandsInJSON from "../utils/convertCommandsInJSON";
 
 export class CubismClient {
 	#client;
@@ -49,19 +50,19 @@ export class CubismClient {
 		const rest = new REST({ version: "10" }).setToken(process.env.TOKEN!);
 
 		await rest.put(Routes.applicationCommands(process.env.CLIENT_ID!), {
-			body: this.convertCommandsInJSON(this.commands.filter((command) => !command.testOnly)),
+			body: convertCommandsInJSON(this.commands.filter((command) => !command.testOnly)),
 		});
 
 		console.log(
-			`${this.convertCommandsInJSON(this.commands.filter((command) => !command.testOnly)).length} published commands uploaded.`,
+			`${convertCommandsInJSON(this.commands.filter((command) => !command.testOnly)).length} published commands uploaded.`,
 		);
 
 		await rest.put(Routes.applicationGuildCommands(process.env.CLIENT_ID!, process.env.GUILD_ID!), {
-			body: this.convertCommandsInJSON(this.commands.filter((command) => command.testOnly)),
+			body: convertCommandsInJSON(this.commands.filter((command) => command.testOnly)),
 		});
 
 		console.log(
-			`${this.convertCommandsInJSON(this.commands.filter((command) => command.testOnly)).length} testing commands uploaded.`,
+			`${convertCommandsInJSON(this.commands.filter((command) => command.testOnly)).length} testing commands uploaded.`,
 		);
 	}
 
@@ -81,21 +82,6 @@ export class CubismClient {
 			if (event.once) this.#client.once(event.name as keyof ClientEvents, execute);
 			else this.#client.on(event.name as keyof ClientEvents, execute);
 		}
-	}
-
-	private convertCommandsInJSON(commands: Collection<string, Command<CommandInteractionOptions>>): object[] {
-		const data: object[] = [];
-
-		commands.forEach((command) => {
-			data.push({
-				name: command.name,
-				description: command.description,
-				type: command.type,
-				testOnly: command.testOnly,
-			});
-		});
-
-		return data;
 	}
 }
 
