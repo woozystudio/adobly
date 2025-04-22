@@ -32,13 +32,13 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Update version in README.md
+      - name: Update version in readme.md
         run: |
           VERSION=${{ github.event.release.tag_name }}
-          sed -i "s/^Current version: .*/Current version: ${VERSION}/" README.md
+          sed -i "s/^Current version: .*/Current version: ${VERSION}/" readme.md
 
       - name: Commit and push changes
         run: |
-          git add README.md
-          git commit -m "chore: update README with release version ${VERSION}"
+          git add readme.md
+          git commit -m "chore: update readme with release version ${VERSION}"
           git push origin ${{ steps.default_branch.outputs.branch }}

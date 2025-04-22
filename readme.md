@@ -8,7 +8,7 @@ In the future it is planned to make this bot open source so that more people can
 
 ## Version
 
-Current version: v0.3.0
+Current version: v0.3.1
 
 ## Author
 
