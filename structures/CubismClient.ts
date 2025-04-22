@@ -83,6 +83,7 @@ export class CubismClient {
 				name: command.name,
 				description: command.description,
 				type: command.type,
+				testOnly: command.testOnly,
 			});
 		});
 
