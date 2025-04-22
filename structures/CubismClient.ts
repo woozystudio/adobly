@@ -52,9 +52,17 @@ export class CubismClient {
 			body: this.convertCommandsInJSON(this.commands.filter((command) => !command.testOnly)),
 		});
 
+		console.log(
+			`${this.convertCommandsInJSON(this.commands.filter((command) => !command.testOnly)).length} published commands uploaded.`,
+		);
+
 		await rest.put(Routes.applicationGuildCommands(process.env.CLIENT_ID!, process.env.GUILD_ID!), {
 			body: this.convertCommandsInJSON(this.commands.filter((command) => command.testOnly)),
 		});
+
+		console.log(
+			`${this.convertCommandsInJSON(this.commands.filter((command) => command.testOnly)).length} testing commands uploaded.`,
+		);
 	}
 
 	async registerEvents() {
