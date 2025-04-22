@@ -12,6 +12,7 @@ export default function convertCommandsInJSON(
 			description: command.description,
 			type: command.type,
 			testOnly: command.testOnly,
+			options: command.options,
 		});
 	});
 
