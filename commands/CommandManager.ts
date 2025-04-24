@@ -1,0 +1,42 @@
+import { ChatInputCommandInteraction } from "discord.js";
+import { CommandInteractionOptions } from "../types/Command";
+import { Command } from "./Command";
+import PingCommand from "./utilities/ping";
+import SetupTicketsCommand from "./utilities/setup-tickets";
+import TestCommand from "./utilities/test";
+import TimestampCommand from "./utilities/timestamp";
+
+export class CommandManager {
+	commands: Command<CommandInteractionOptions>[] = [
+		new PingCommand(),
+
+		/* Tickets */
+		new SetupTicketsCommand(),
+
+		/* Dev Tools */
+		new TimestampCommand(),
+
+		/* Owner Tools */
+		new TestCommand(),
+	];
+
+	getAllCommands() {
+		return this.commands;
+	}
+
+	findCommand(name: string) {
+		return this.getAllCommands().find((c) => c.name === name.toLowerCase()) ?? null;
+	}
+
+	async execute(interaction: ChatInputCommandInteraction) {
+		const command = this.findCommand(interaction.commandName);
+
+		try {
+			await command?.chatInput(interaction);
+		} catch (e) {
+			console.error(e);
+		}
+	}
+}
+
+export default new CommandManager();
