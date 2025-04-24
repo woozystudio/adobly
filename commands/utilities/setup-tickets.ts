@@ -1,37 +1,21 @@
 import {
 	ActionRowBuilder,
-	ApplicationCommandOptionType,
-	ApplicationCommandType,
 	ButtonBuilder,
 	ButtonStyle,
-	ChannelType,
 	ChatInputCommandInteraction,
 	EmbedBuilder,
 	MessageFlags,
 	TextChannel,
 } from "discord.js";
-import { Command, CommandInteractionOptions } from "../builders/Command.js";
+import { Command } from "../Command.js";
+import { SetupTicketsInteractionCommand } from "../../interactions/setup-tickets.js";
 
-export class SetupTicketsCommand extends Command<CommandInteractionOptions> {
+export class SetupTicketsCommand extends Command<typeof SetupTicketsInteractionCommand> {
 	constructor() {
-		super({
-			name: "setup-tickets",
-			description: "Set up the ticketing system on your server.",
-			type: ApplicationCommandType.ChatInput,
-			testOnly: false,
-			options: [
-				{
-					name: "channel",
-					description: "Select a channel to send the message to create the tickets.",
-					type: ApplicationCommandOptionType.Channel,
-					channel_types: [ChannelType.GuildText],
-					required: false,
-				},
-			],
-		});
+		super(SetupTicketsInteractionCommand);
 	}
 
-	override async execute(interaction: ChatInputCommandInteraction) {
+	override async chatInput(interaction: ChatInputCommandInteraction) {
 		const channel = (interaction.options.getChannel("channel") || interaction.channel) as TextChannel;
 
 		const TicketCreateEmbed = new EmbedBuilder()
