@@ -1,5 +1,6 @@
 import { Collection } from "discord.js";
-import { Command, CommandInteractionOptions } from "../builders/Command";
+import { Command } from "../commands/Command";
+import type { CommandInteractionOptions } from "../types/Command";
 
 export default function convertCommandsInJSON(
 	commands: Collection<string, Command<CommandInteractionOptions>>,
