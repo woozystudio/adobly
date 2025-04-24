@@ -7,6 +7,7 @@ import {
 	ChatInputCommandInteraction,
 	EmbedBuilder,
 	Events,
+	GuildMember,
 	MessageFlags,
 	PermissionFlagsBits,
 	TextChannel,
@@ -87,6 +88,12 @@ export default class InteractionCreate extends Event<EventCreatorOptions> {
 				});
 			} else if (interaction.customId === "close-ticket") {
 				const interactionChannel = interaction.channel as TextChannel;
+				const member = (await interaction.guild?.members.fetch(interaction.user)) as GuildMember;
+				if (!member?.permissions.has(PermissionFlagsBits.ManageChannels))
+					return interaction.reply({
+						content: `\`❌\` You do not have sufficient permissions to perform this action.`,
+						flags: "Ephemeral",
+					});
 
 				const CloseEmbed = new EmbedBuilder().setDescription("The ticket will be closed soon...").setColor(0xfb2f61);
 
