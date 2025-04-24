@@ -1,6 +1,6 @@
-# WoozyStudio App
+# Adobly
 
-A discord bot for general server management. WoozyStudio App is a bot full of useful features for server creation, project creation, project management, etc. It is also a personal help bot.
+A discord bot for general server management. Adobly is a bot full of useful features for server creation, project creation, project management, etc. It is also a personal help bot.
 
 As of today, this bot is under development and the code is not considered stable, we recommend using this code from version 1.0.0 onwards, otherwise, you may experience some bugs.
 
@@ -8,11 +8,11 @@ In the future it is planned to make this bot open source so that more people can
 
 ## Version
 
-Current version: v0.6.0
+Current version: v1.0.0
 
 ## Author
 
-**WoozyStudio App** © [WoozyStudio](https://woozystudio.com).  
+**Adobly** © [WoozyStudio](https://woozystudio.com).  
 Authored and maintained by WoozyStudio.
 
 > GitHub [@WoozyStudio](https://github.com/woozystudio)
