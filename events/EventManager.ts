@@ -1,3 +1,5 @@
+import { logger } from "../logger";
+
 export default class EventManager {
 	public getEventListeners() {}
 
@@ -7,7 +9,7 @@ export default class EventManager {
 		try {
 			await eventListener.execute(...args);
 		} catch (error) {
-			console.error(error);
+			logger.error(error);
 		}
 	}
 }

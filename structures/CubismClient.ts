@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import process from "node:process";
 import convertCommandsInJSON from "../utils/convertCommandsInJSON";
 import CommandManager from "../commands/CommandManager";
+import { logger } from "../logger";
 
 export class CubismClient {
 	#client;
@@ -43,7 +44,7 @@ export class CubismClient {
 			body: convertCommandsInJSON(this.commands.filter((command) => !command.testOnly)),
 		});
 
-		console.log(
+		logger.info(
 			`${convertCommandsInJSON(this.commands.filter((command) => !command.testOnly)).length} published commands uploaded.`,
 		);
 
@@ -51,7 +52,7 @@ export class CubismClient {
 			body: convertCommandsInJSON(this.commands.filter((command) => command.testOnly)),
 		});
 
-		console.log(
+		logger.info(
 			`${convertCommandsInJSON(this.commands.filter((command) => command.testOnly)).length} testing commands uploaded.`,
 		);
 	}

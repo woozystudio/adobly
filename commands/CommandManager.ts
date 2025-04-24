@@ -5,6 +5,7 @@ import PingCommand from "./utilities/ping";
 import SetupTicketsCommand from "./utilities/setup-tickets";
 import TestCommand from "./utilities/test";
 import TimestampCommand from "./utilities/timestamp";
+import { logger } from "../logger";
 
 export class CommandManager {
 	commands: Command<CommandInteractionOptions>[] = [
@@ -34,7 +35,7 @@ export class CommandManager {
 		try {
 			await command?.chatInput(interaction);
 		} catch (e) {
-			console.error(e);
+			logger.error(e);
 		}
 	}
 }
