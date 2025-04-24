@@ -30,6 +30,7 @@
 		"glob": "11.0.1",
 		"i18next": "25.0.1",
 		"i18next-fs-backend": "2.6.0",
+		"mongoose": "8.13.3",
 		"oxlint": "0.16.6",
 		"path": "0.12.7",
 		"pino": "9.6.0",
