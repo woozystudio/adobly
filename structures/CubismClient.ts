@@ -6,6 +6,7 @@ import process from "node:process";
 import convertCommandsInJSON from "../utils/convertCommandsInJSON";
 import CommandManager from "../commands/CommandManager";
 import { logger } from "../logger";
+import { connect } from "mongoose";
 
 export class CubismClient {
 	#client;
@@ -31,6 +32,9 @@ export class CubismClient {
 
 	public start() {
 		this.#client.login(process.env.TOKEN);
+		connect(`${process.env.MONGO_URI}`, { appName: "adobly-v1" }).then(() => {
+			logger.info("MongoDB database connected.");
+		});
 	}
 
 	async registerCommands() {
