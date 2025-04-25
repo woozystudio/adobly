@@ -27,8 +27,9 @@ export default class InteractionCreateEventListener extends EventListener {
 			const command = CubismClient.commands.get(interaction.commandName);
 
 			if (!command) return;
+			const locale = "es-ES";
 
-			return command.chatInput(interaction);
+			return command.chatInput(interaction, locale);
 		} else if (interaction.isButton()) {
 			if (interaction.customId === "create-ticket") {
 				const interactionChannel = interaction.channel as TextChannel;

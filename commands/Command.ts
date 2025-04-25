@@ -16,5 +16,5 @@ export abstract class Command<C extends CommandInteractionOptions> {
 		this.testOnly = options.testOnly;
 	}
 
-	public abstract chatInput(interaction: ChatInputCommandInteraction): Promise<void | unknown> | void;
+	public abstract chatInput(interaction: ChatInputCommandInteraction, locale?: string): Promise<void | unknown> | void;
 }
