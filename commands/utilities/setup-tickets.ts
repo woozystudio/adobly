@@ -9,36 +9,34 @@ import {
 } from "discord.js";
 import { Command } from "../Command.js";
 import { SetupTicketsInteractionCommand } from "../../interactions/setup-tickets.js";
+import i18next from "i18next";
 
 export class SetupTicketsCommand extends Command<typeof SetupTicketsInteractionCommand> {
 	constructor() {
 		super(SetupTicketsInteractionCommand);
 	}
 
-	override async chatInput(interaction: ChatInputCommandInteraction) {
+	override async chatInput(interaction: ChatInputCommandInteraction, locale: string) {
 		const channel = (interaction.options.getChannel("channel") || interaction.channel) as TextChannel;
 
 		const TicketCreateEmbed = new EmbedBuilder()
-			.setAuthor({ name: `Ticketing system for ${interaction.guild?.name}` })
-			.setDescription(
-				`
-            \`❓\` **What is a ticket?**
-            > A ticket is a communication method for the server's support team to help you with any questions or problems you may have.
-            `,
-			)
+			.setAuthor({
+				name: `${i18next.t("command.utility.setupticket.createembed.author", { lng: locale, guild_name: interaction.guild?.name })}`,
+			})
+			.setDescription(`${i18next.t("command.utility.setupticket.createembed.description", { lng: locale })}`)
 			.setThumbnail(`${interaction.guild?.iconURL()}`)
 			.setColor("Blurple");
 
 		const CreateTicketButton = new ActionRowBuilder<ButtonBuilder>().addComponents(
 			new ButtonBuilder()
 				.setCustomId("create-ticket")
-				.setLabel("Create Ticket")
+				.setLabel(`${i18next.t("command.utility.setupticket.createbutton", { lng: locale })}`)
 				.setEmoji("📥")
 				.setStyle(ButtonStyle.Secondary),
 		);
 
 		await interaction.reply({
-			content: `\`✅\` The ticket creation message has been sent.`,
+			content: `${i18next.t("command.utility.setupticket.success", { lng: locale })}`,
 			flags: MessageFlags.Ephemeral,
 		});
 		await channel.send({ embeds: [TicketCreateEmbed], components: [CreateTicketButton] });

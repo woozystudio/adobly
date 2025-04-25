@@ -1,0 +1,20 @@
+{
+	"common": {
+		"errors": {}
+	},
+	"command": {
+		"common": {
+			"errors": {}
+		},
+		"utility": {
+			"setupticket": {
+				"createembed": {
+					"author": "Sistema de tickets para {{guild_name}}",
+					"description": "`❓` **¿Qué es un ticket?**\n> Los tickets son un método de comunicación entre el equipo de soporte del servidor y el usuario, por medio de estos te pueden ayudar con cualquier problema o pregunta que tengas. ¡No tengas miedo de preguntar!"
+				},
+				"createbutton": "Crear Ticket",
+				"success": "`✅` El mensaje para crear tickets se envió correctamente."
+			}
+		}
+	}
+}
