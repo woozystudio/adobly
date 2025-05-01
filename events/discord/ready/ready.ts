@@ -24,6 +24,9 @@ export default class ReadyEventListener extends EventListener {
 			preload: ["es-ES"],
 			returnNull: false,
 			returnEmptyString: false,
+			interpolation: {
+				escapeValue: false,
+			},
 		});
 
 		logger.info("i18next translations loaded.");
