@@ -1,0 +1,36 @@
+{
+	"common": {
+		"errors": {
+			"no_permissions": "`❌` No tienes permisos suficientes para realizar esta acción."
+		}
+	},
+	"command": {
+		"common": {
+			"errors": {}
+		},
+		"utility": {
+			"setupticket": {
+				"createembed": {
+					"author": "Sistema de tickets para {{guild_name}}",
+					"description": "`❓` **¿Qué es un ticket?**\n> Los tickets son un método de comunicación entre el equipo de soporte del servidor y el usuario, por medio de estos te pueden ayudar con cualquier problema o pregunta que tengas. ¡No tengas miedo de preguntar!"
+				},
+				"createbutton": "Crear Ticket",
+				"success": "`✅` El mensaje para crear tickets se envió correctamente."
+			}
+		}
+	},
+	"systems": {
+		"tickets": {
+			"embeds": {
+				"ticketcreated": {
+					"title": "¡Hola! ¡Bienvenido/a a tu ticket!",
+					"description": "Un miembro del personal se pondrá en contacto contigo en breve, por favor sé paciente. Si es posible, déjanos tu problema o duda para una atención más rápida y eficaz.",
+					"footer": "Administración de {{guild_name}}"
+				},
+				"closing": "`🔨` El ticket será eliminado, gracias!"
+			},
+			"closebutton": "Cerrar Ticket",
+			"success": "`✅` El ticket se creó correctamente en el canal {{- channel}}."
+		}
+	}
+}

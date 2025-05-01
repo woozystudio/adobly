@@ -1,6 +1,6 @@
 {
-	"name": "woozystudio-app",
-	"version": "0.6.0",
+	"name": "adobly",
+	"version": "1.0.0",
 	"description": "",
 	"scripts": {
 		"build:clean": "del-cli dist/*",
@@ -11,14 +11,14 @@
 		"format": "prettier --write .",
 		"start": "npm run build && node --enable-source-maps dist/index.js",
 		"watch": "tsc-watch --onSuccess \"npm run start\"",
-		"docker:build": "docker build -t woozystudio-app .",
+		"docker:build": "docker build -t adobly .",
 		"docker:start": "docker compose up -d",
-		"docker:logs": "docker logs -f woozystudio-app",
+		"docker:logs": "docker logs -f adobly",
 		"docker:stop": "docker compose down"
 	},
 	"keywords": [],
 	"author": "WoozyStudio <woozystudiocontact@gmail.com>",
-	"license": "UNLICENSED",
+	"license": "MIT",
 	"private": true,
 	"dependencies": {
 		"@discordjs/rest": "2.4.3",
@@ -28,8 +28,13 @@
 		"dotenv": "16.5.0",
 		"fs": "0.0.1-security",
 		"glob": "11.0.1",
+		"i18next": "25.0.1",
+		"i18next-fs-backend": "2.6.0",
+		"mongoose": "8.13.3",
 		"oxlint": "0.16.6",
 		"path": "0.12.7",
+		"pino": "9.6.0",
+		"pino-pretty": "13.0.0",
 		"prettier": "3.5.3"
 	},
 	"devDependencies": {

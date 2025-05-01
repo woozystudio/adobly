@@ -1,7 +1,7 @@
 services:
-  woozystudio-app:
-    container_name: woozystudio-app-debug
-    image: woozystudio-app:debug
+  adobly:
+    container_name: adobly-debug
+    image: adobly:debug
     build:
       context: .
       dockerfile: Dockerfile

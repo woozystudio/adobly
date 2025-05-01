@@ -1,9 +1,15 @@
+import DiscordEventManager from "./events/discord/DiscordEventManager.js";
+import { logger } from "./logger.js";
 import bot from "./structures/CubismClient.js";
 
 try {
 	bot.start();
 	bot.registerCommands();
-	bot.registerEvents();
+	new DiscordEventManager().subscribe();
 } catch (error) {
-	console.error(error);
+	try {
+		logger.error(error);
+	} catch (e) {
+		console.error(error);
+	}
 }

@@ -1,9 +1,9 @@
 version: "3.8"
 
 services:
-  woozystudio-app:
-    container_name: woozystudio-app
-    image: woozystudio-app:latest
+  adobly:
+    container_name: adobly
+    image: adobly:latest
     build:
       context: .
       dockerfile: Dockerfile

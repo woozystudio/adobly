@@ -12,10 +12,11 @@ import {
 	PermissionFlagsBits,
 	TextChannel,
 } from "discord.js";
-import { Event, EventCreatorOptions } from "../builders/Event";
-import CubismClient from "../structures/CubismClient";
+import CubismClient from "../../../structures/CubismClient";
+import { EventListener } from "../../EventListener";
+import i18next from "i18next";
 
-export default class InteractionCreate extends Event<EventCreatorOptions> {
+export default class InteractionCreateEventListener extends EventListener {
 	constructor() {
 		super({
 			name: Events.InteractionCreate,
@@ -23,12 +24,14 @@ export default class InteractionCreate extends Event<EventCreatorOptions> {
 	}
 
 	override async execute(interaction: ChatInputCommandInteraction | ButtonInteraction) {
+		const locale = "es-ES";
+
 		if (interaction.isChatInputCommand()) {
 			const command = CubismClient.commands.get(interaction.commandName);
 
 			if (!command) return;
 
-			return command.execute(interaction);
+			return command.chatInput(interaction, locale);
 		} else if (interaction.isButton()) {
 			if (interaction.customId === "create-ticket") {
 				const interactionChannel = interaction.channel as TextChannel;
@@ -57,21 +60,19 @@ export default class InteractionCreate extends Event<EventCreatorOptions> {
 				})) as TextChannel;
 
 				const CreatedTicketEmbed = new EmbedBuilder()
-					.setTitle("Welcome! We hope you are well!")
+					.setTitle(`${i18next.t("systems.tickets.embeds.ticketcreated.title", { lng: locale })}`)
 					.setColor(0xa9d0ff)
-					.setDescription(
-						"A member of the staff will contact you shortly, please be patient. If possible, please leave us your problem or doubt for a faster and more efficient attention.",
-					)
+					.setDescription(`${i18next.t("systems.tickets.embeds.ticketcreated.description", { lng: locale })}`)
 					.setFooter({
 						iconURL: `${interaction.guild?.iconURL()}`,
-						text: `${interaction.guild?.name} Administration`,
+						text: `${i18next.t("systems.tickets.embeds.ticketcreated.footer", { lng: locale, guild_name: interaction.guild?.name })}`,
 					})
 					.setTimestamp();
 
 				const TicketManagerButtons = new ActionRowBuilder<ButtonBuilder>().addComponents(
 					new ButtonBuilder()
 						.setCustomId("close-ticket")
-						.setLabel("Close Ticket")
+						.setLabel(`${i18next.t("systems.tickets.closebutton", { lng: locale })}`)
 						.setEmoji("🔒")
 						.setStyle(ButtonStyle.Secondary),
 				);
@@ -83,7 +84,7 @@ export default class InteractionCreate extends Event<EventCreatorOptions> {
 				});
 
 				return interaction.reply({
-					content: `\`✅\` The ticket has been created correctly: ${channel}`,
+					content: `${i18next.t("systems.tickets.success", { lng: locale, channel: `${channel}` })}`,
 					flags: MessageFlags.Ephemeral,
 				});
 			} else if (interaction.customId === "close-ticket") {
@@ -91,11 +92,13 @@ export default class InteractionCreate extends Event<EventCreatorOptions> {
 				const member = (await interaction.guild?.members.fetch(interaction.user)) as GuildMember;
 				if (!member?.permissions.has(PermissionFlagsBits.ManageChannels))
 					return interaction.reply({
-						content: `\`❌\` You do not have sufficient permissions to perform this action.`,
+						content: `${i18next.t("common.errors.no_permissions", { lng: locale })}`,
 						flags: "Ephemeral",
 					});
 
-				const CloseEmbed = new EmbedBuilder().setDescription("The ticket will be closed soon...").setColor(0xfb2f61);
+				const CloseEmbed = new EmbedBuilder()
+					.setDescription(`${i18next.t("systems.tickets.embeds.closing", { lng: locale })}`)
+					.setColor("Blurple");
 
 				setTimeout(() => {
 					interactionChannel.delete();
