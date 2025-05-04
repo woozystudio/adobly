@@ -32,6 +32,9 @@
 			"guildinfo": {
 				"generalinfo": "Información general",
 				"owner": "Dueño"
+			},
+			"avatar": {
+				"title": "Avatar de {{username}}"
 			}
 		}
 	},
