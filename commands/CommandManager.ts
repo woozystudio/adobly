@@ -9,6 +9,7 @@ import { logger } from "../logger";
 import UserInfoCommand from "./information/userinfo";
 import { GuildInfoCommand } from "./information/guildinfo";
 import AvatarCommand from "./information/avatar";
+import LangCommand from "./utilities/lang";
 
 export class CommandManager {
 	commands: Command<CommandInteractionOptions>[] = [
@@ -16,6 +17,9 @@ export class CommandManager {
 		new UserInfoCommand(),
 		new GuildInfoCommand(),
 		new AvatarCommand(),
+
+		/* Management */
+		new LangCommand(),
 
 		/* Tickets */
 		new SetupTicketsCommand(),
