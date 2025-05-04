@@ -8,12 +8,14 @@ import TimestampCommand from "./utilities/timestamp";
 import { logger } from "../logger";
 import UserInfoCommand from "./information/userinfo";
 import { GuildInfoCommand } from "./information/guildinfo";
+import AvatarCommand from "./information/avatar";
 
 export class CommandManager {
 	commands: Command<CommandInteractionOptions>[] = [
 		new PingCommand(),
 		new UserInfoCommand(),
 		new GuildInfoCommand(),
+		new AvatarCommand(),
 
 		/* Tickets */
 		new SetupTicketsCommand(),
