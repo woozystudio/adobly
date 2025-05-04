@@ -15,6 +15,7 @@ import {
 import CubismClient from "../../../structures/CubismClient";
 import { EventListener } from "../../EventListener";
 import i18next from "i18next";
+import Language from "../../../mongo/Language";
 
 export default class InteractionCreateEventListener extends EventListener {
 	constructor() {
@@ -24,7 +25,15 @@ export default class InteractionCreateEventListener extends EventListener {
 	}
 
 	override async execute(interaction: ChatInputCommandInteraction | ButtonInteraction) {
-		const locale = "es-ES";
+		let locale: string;
+
+		const data = await Language.findOne({ GuildID: interaction.guildId });
+
+		if (data && data.Language) {
+			locale = data.Language;
+		} else {
+			locale = "es-ES";
+		}
 
 		if (interaction.isChatInputCommand()) {
 			const command = CubismClient.commands.get(interaction.commandName);
