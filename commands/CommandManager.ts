@@ -6,10 +6,14 @@ import SetupTicketsCommand from "./utilities/setup-tickets";
 import TestCommand from "./utilities/test";
 import TimestampCommand from "./utilities/timestamp";
 import { logger } from "../logger";
+import UserInfoCommand from "./information/userinfo";
+import { GuildInfoCommand } from "./information/guildinfo";
 
 export class CommandManager {
 	commands: Command<CommandInteractionOptions>[] = [
 		new PingCommand(),
+		new UserInfoCommand(),
+		new GuildInfoCommand(),
 
 		/* Tickets */
 		new SetupTicketsCommand(),
