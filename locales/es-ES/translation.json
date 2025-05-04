@@ -26,6 +26,10 @@
 				},
 				"createbutton": "Crear Ticket",
 				"success": "`✅` El mensaje para crear tickets se envió correctamente."
+			},
+			"lang": {
+				"success": "El idioma del bot se ha establecido a `{{lang}}`.",
+				"updated": "El idioma del bot se ha actualizado a `{{lang}}`."
 			}
 		},
 		"info": {
