@@ -22,6 +22,7 @@
 	"private": true,
 	"dependencies": {
 		"@discordjs/rest": "2.4.3",
+		"cpy-cli": "5.0.0",
 		"del-cli": "6.0.0",
 		"discord-api-types": "0.37.120",
 		"discord.js": "14.18.0",
