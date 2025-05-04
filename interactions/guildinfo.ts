@@ -5,5 +5,5 @@ export const GuildInfoInteractionCommand: CommandInteractionOptions = {
 	name: "guildinfo",
 	description: "See server information.",
 	type: ApplicationCommandType.ChatInput,
-	testOnly: true,
+	testOnly: false,
 } as const;
