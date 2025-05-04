@@ -6,7 +6,17 @@
 	},
 	"command": {
 		"common": {
-			"errors": {}
+			"errors": {},
+			"createdat": "Fecha de creación",
+			"joinedat": "Fecha de ingreso",
+			"permissions": "Permisos",
+			"roles": "Roles",
+			"userid": "ID de usuario",
+			"guildid": "ID del servidor",
+			"channels": "Canales",
+			"members": "Miembros",
+			"emojis": "Emojis",
+			"name": "Nombre"
 		},
 		"utility": {
 			"setupticket": {
@@ -16,6 +26,12 @@
 				},
 				"createbutton": "Crear Ticket",
 				"success": "`✅` El mensaje para crear tickets se envió correctamente."
+			}
+		},
+		"info": {
+			"guildinfo": {
+				"generalinfo": "Información general",
+				"owner": "Dueño"
 			}
 		}
 	},
