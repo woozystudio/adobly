@@ -1,10 +1,8 @@
 # Adobly
 
-A discord bot for general server management. Adobly is a bot full of useful features for server creation, project creation, project management, etc. It is also a personal help bot.
+Adobly planea ser uno de los bots más eficientes para gestión de servidores en su totalidad. Actualmente cuenta con un sistema de tickets básico y próximamente un sistema de moderación ideal para equipos de soporte.
 
-As of today, this bot is under development and the code is not considered stable, we recommend using this code from version 1.0.0 onwards, otherwise, you may experience some bugs.
-
-In the future it is planned to make this bot open source so that more people can collaborate on it and grow this nice project. It is also planned to create a documentation for the bot features, as well as for the code.
+El archivo para contribuciones se creará dentro de poco para deliminar reglas que se deberán cumplir durante la aportación al bot. Por ahora, sí se pueden hacer contribuciones de manera libre, no se preocupen.
 
 ## Version
 
