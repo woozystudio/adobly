@@ -32,7 +32,7 @@ export default class InteractionCreateEventListener extends EventListener {
 		if (data && data.Language) {
 			locale = data.Language;
 		} else {
-			locale = "es-ES";
+			locale = process.env.DEFAULT_LOCALE || "es-ES";
 		}
 
 		if (interaction.isChatInputCommand()) {
