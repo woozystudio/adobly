@@ -1,0 +1,59 @@
+{
+	"common": {
+		"errors": {
+			"no_permissions": "`❌` Vous n'avez pas les permissions nécessaires pour faire cela."
+		}
+	},
+	"command": {
+		"common": {
+			"errors": {},
+			"createdat": "Date de création",
+			"joinedat": "Date d'adhésion",
+			"permissions": "Permissions",
+			"roles": "Rôles",
+			"userid": "ID d'utilisateur",
+			"guildid": "ID du serveur",
+			"channels": "Salons",
+			"members": "Membres",
+			"emojis": "Emojis",
+			"name": "Nom"
+		},
+		"utility": {
+			"setupticket": {
+				"createembed": {
+					"author": "Système de ticket pour {{guild_name}}",
+					"description": "`❓` **Qu'est-ce qu'un ticket ?**\n> Les tickets sont un moyen de communication entre l'équipe de support du serveur et le membre. Grâce à eux, vous pouvez obtenir de l'aide pour tout problème ou question. N'ayez pas peur de demander!"
+				},
+				"createbutton": "Créer un ticket",
+				"success": "`✅` Le message de création de ticket a été envoyé avec succès."
+			},
+			"lang": {
+				"success": "La langue du bot a été mise en `{{lang}}`.",
+				"updated": "La langue du bot a été mise à jour en `{{lang}}`."
+			}
+		},
+		"info": {
+			"guildinfo": {
+				"generalinfo": "Informations générales",
+				"owner": "Propriétaire"
+			},
+			"avatar": {
+				"title": "Avatar de {{username}}"
+			}
+		}
+	},
+	"systems": {
+		"tickets": {
+			"embeds": {
+				"ticketcreated": {
+					"title": "Salut! Bienvenue sur votre ticket!",
+					"description": "Un membre du staff vous contactera sous peu. Soyez patient. Si possible, indiquez-nous votre problème ou question pour une assistance plus rapide et efficace.",
+					"footer": "Gestion de {{guild_name}}"
+				},
+				"closing": "`🔨` Le ticket sera supprimé. Merci!"
+			},
+			"closebutton": "Fermer le ticket",
+			"success": "`✅` Le ticket a été créé avec succès dans le salon {{- channel}}."
+		}
+	}
+}
