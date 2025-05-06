@@ -21,7 +21,7 @@ export default class ReadyEventListener extends EventListener {
 				loadPath: "locales/{{lng}}/{{ns}}.json",
 			},
 			cleanCode: true,
-			preload: ["es-ES", "en-US"],
+			preload: ["es-ES", "en-US", "fr-FR"],
 			returnNull: false,
 			returnEmptyString: false,
 			interpolation: {
