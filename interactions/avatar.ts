@@ -5,7 +5,7 @@ export const AvatarInteractionCommand: CommandInteractionOptions = {
 	name: "avatar",
 	description: "View a user avatar.",
 	type: ApplicationCommandType.ChatInput,
-	testOnly: true,
+	testOnly: false,
 	options: [
 		{
 			name: "target",

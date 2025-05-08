@@ -5,7 +5,7 @@ export const LangInteractionCommand: CommandInteractionOptions = {
 	name: "lang",
 	description: "Change the bot language to suit your needs.",
 	type: ApplicationCommandType.ChatInput,
-	testOnly: true,
+	testOnly: false,
 	options: [
 		{
 			name: "language",
