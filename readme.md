@@ -6,7 +6,7 @@ El archivo para contribuciones se creará dentro de poco para deliminar reglas q
 
 ## Versión
 
-Versión actual: v1.1.0
+Versión actual: v1.2.0
 
 ## Autor
 
