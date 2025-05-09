@@ -14,6 +14,7 @@ export const LangInteractionCommand: CommandInteractionOptions = {
 			choices: [
 				{ name: "English (United States)", value: "en-US" },
 				{ name: "Español", value: "es-ES" },
+				{ name: "Français", value: "fr-FR" },
 			],
 			required: true,
 		},
