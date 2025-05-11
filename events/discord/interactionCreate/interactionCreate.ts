@@ -40,7 +40,7 @@ export default class InteractionCreateEventListener extends EventListener {
 
 			if (!command) return;
 
-			return command.chatInput(interaction, locale);
+			return command.chatInput(interaction, locale, CubismClient);
 		} else if (interaction.isButton()) {
 			if (interaction.customId === "create-ticket") {
 				const interactionChannel = interaction.channel as TextChannel;
@@ -101,7 +101,7 @@ export default class InteractionCreateEventListener extends EventListener {
 				const member = (await interaction.guild?.members.fetch(interaction.user)) as GuildMember;
 				if (!member?.permissions.has(PermissionFlagsBits.ManageChannels))
 					return interaction.reply({
-						content: `${i18next.t("common.errors.no_permissions", { lng: locale })}`,
+						content: `${i18next.t("command.common.errors.no_permissions", { lng: locale })}`,
 						flags: "Ephemeral",
 					});
 
