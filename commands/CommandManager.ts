@@ -10,9 +10,11 @@ import UserInfoCommand from "./information/userinfo";
 import { GuildInfoCommand } from "./information/guildinfo";
 import AvatarCommand from "./information/avatar";
 import LangCommand from "./utilities/lang";
+import BanCommand from "./moderation/ban";
 
 export class CommandManager {
 	commands: Command<CommandInteractionOptions>[] = [
+		/* Informaton */
 		new PingCommand(),
 		new UserInfoCommand(),
 		new GuildInfoCommand(),
@@ -20,6 +22,9 @@ export class CommandManager {
 
 		/* Management */
 		new LangCommand(),
+
+		/* Moderation */
+		new BanCommand(),
 
 		/* Tickets */
 		new SetupTicketsCommand(),
