@@ -1,4 +1,4 @@
-import { Client, Collection, GatewayIntentBits, REST, Routes } from "discord.js";
+import { ActivityType, Client, Collection, GatewayIntentBits, PresenceUpdateStatus, REST, Routes } from "discord.js";
 import { Command } from "../commands/Command";
 import type { CommandInteractionOptions } from "../types/Command";
 import dotenv from "dotenv";
@@ -21,6 +21,10 @@ export class CubismClient {
 				GatewayIntentBits.GuildMessages,
 				GatewayIntentBits.MessageContent,
 			],
+			presence: {
+				activities: [{ name: "woozystudio.com", type: ActivityType.Custom }],
+				status: PresenceUpdateStatus.Idle,
+			},
 		});
 
 		dotenv.config();
