@@ -11,6 +11,7 @@ import { GuildInfoCommand } from "./information/guildinfo";
 import AvatarCommand from "./information/avatar";
 import LangCommand from "./utilities/lang";
 import BanCommand from "./moderation/ban";
+import KickCommand from "./moderation/kick";
 
 export class CommandManager {
 	commands: Command<CommandInteractionOptions>[] = [
@@ -25,6 +26,7 @@ export class CommandManager {
 
 		/* Moderation */
 		new BanCommand(),
+		new KickCommand(),
 
 		/* Tickets */
 		new SetupTicketsCommand(),
