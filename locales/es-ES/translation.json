@@ -51,6 +51,9 @@
 		"mod": {
 			"ban": {
 				"success": "El usuario ha sido baneado del servidor con éxito."
+			},
+			"kick": {
+				"success": "El usuario ha sido expulsado del servidor con éxito."
 			}
 		}
 	},
