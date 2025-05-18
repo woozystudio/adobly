@@ -1,17 +1,18 @@
 import { ChatInputCommandInteraction } from "discord.js";
 import { CommandInteractionOptions } from "../types/Command";
 import { Command } from "./Command";
+import { logger } from "../logger";
 import PingCommand from "./utilities/ping";
 import SetupTicketsCommand from "./utilities/setup-tickets";
 import TestCommand from "./utilities/test";
 import TimestampCommand from "./utilities/timestamp";
-import { logger } from "../logger";
 import UserInfoCommand from "./information/userinfo";
-import { GuildInfoCommand } from "./information/guildinfo";
+import GuildInfoCommand from "./information/guildinfo";
 import AvatarCommand from "./information/avatar";
 import LangCommand from "./utilities/lang";
 import BanCommand from "./moderation/ban";
 import KickCommand from "./moderation/kick";
+import UnbanCommand from "./moderation/unban";
 
 export class CommandManager {
 	commands: Command<CommandInteractionOptions>[] = [
@@ -27,6 +28,7 @@ export class CommandManager {
 		/* Moderation */
 		new BanCommand(),
 		new KickCommand(),
+		new UnbanCommand(),
 
 		/* Tickets */
 		new SetupTicketsCommand(),
