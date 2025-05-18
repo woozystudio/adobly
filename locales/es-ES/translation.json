@@ -8,6 +8,7 @@
 				"generic": "Algo salió mal.",
 				"no_permissions": "No tienes permisos suficientes para realizar esta acción.",
 				"no_bot_permissions": "No tengo permisos suficientes para establecer esta acción.",
+				"user_doesnt_exist": "El usuario ingresado no existe.",
 				"cannot_moderate_bot": "No puedes sancionarme.",
 				"cannot_moderate_yourself": "No puedes sancionarte a tí mismo.",
 				"cannot_moderate_user": "No puedes sancionar a este usuario.",
@@ -54,6 +55,12 @@
 			},
 			"kick": {
 				"success": "El usuario ha sido expulsado del servidor con éxito."
+			},
+			"unban": {
+				"success": "El usuario ha sido desbaneado del servidor con éxito.",
+				"errors": {
+					"not_found": "Parece que esta ID no está baneada del servidor."
+				}
 			}
 		}
 	},
