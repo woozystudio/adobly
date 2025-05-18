@@ -5,7 +5,7 @@ export const KickInteractionCommand: CommandInteractionOptions = {
 	name: "kick",
 	description: "Kicks a user from the server.",
 	type: ApplicationCommandType.ChatInput,
-	testOnly: true,
+	testOnly: false,
 	options: [
 		{
 			name: "target",
