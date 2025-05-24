@@ -13,6 +13,9 @@ import LangCommand from "./utilities/lang";
 import BanCommand from "./moderation/ban";
 import KickCommand from "./moderation/kick";
 import UnbanCommand from "./moderation/unban";
+import MuteCommand from "./moderation/mute";
+import SetupMuteCommand from "./moderation/setup-mute";
+import UnmuteCommand from "./moderation/unmute";
 
 export class CommandManager {
 	commands: Command<CommandInteractionOptions>[] = [
@@ -29,9 +32,12 @@ export class CommandManager {
 		new BanCommand(),
 		new KickCommand(),
 		new UnbanCommand(),
+		new MuteCommand(),
+		new UnmuteCommand(),
 
-		/* Tickets */
+		/* Setup */
 		new SetupTicketsCommand(),
+		new SetupMuteCommand(),
 
 		/* Dev Tools */
 		new TimestampCommand(),
