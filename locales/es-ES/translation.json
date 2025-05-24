@@ -6,6 +6,7 @@
 		"common": {
 			"errors": {
 				"generic": "Algo salió mal.",
+				"no_enabled_module": "El módulo `{{module}}` no está habilitado en este servidor.",
 				"no_permissions": "No tienes permisos suficientes para realizar esta acción.",
 				"no_bot_permissions": "No tengo permisos suficientes para establecer esta acción.",
 				"user_doesnt_exist": "El usuario ingresado no existe.",
@@ -38,6 +39,10 @@
 			"lang": {
 				"success": "El idioma del bot se ha establecido a `{{lang}}`.",
 				"updated": "El idioma del bot se ha actualizado a `{{lang}}`."
+			},
+			"setupmute": {
+				"success": "El rol {{role}} se ha establecido correctamente.",
+				"updated": "El rol {{role}} se ha actualizado correctamente."
 			}
 		},
 		"info": {
@@ -61,6 +66,12 @@
 				"errors": {
 					"not_found": "Parece que esta ID no está baneada del servidor."
 				}
+			},
+			"mute": {
+				"success": "El usuario ha sido silenciado con éxito."
+			},
+			"unmute": {
+				"success": "Se ha eliminado el silencio al usuario correctamente."
 			}
 		}
 	},
