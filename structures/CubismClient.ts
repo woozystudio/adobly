@@ -7,11 +7,15 @@ import convertCommandsInJSON from "../utils/convertCommandsInJSON";
 import CommandManager from "../commands/CommandManager";
 import { logger } from "../logger";
 import { connect } from "mongoose";
+import { SubCommand } from "../commands/SubCommand";
+import { SubCommandInteractionOptions } from "../types/SubCommand";
+import SubCommandManager from "../commands/SubCommandManager";
 
 export class CubismClient {
 	#client;
 
 	public commands: Collection<string, Command<CommandInteractionOptions>> = new Collection();
+	public subCommands: Collection<string, SubCommand<SubCommandInteractionOptions>> = new Collection();
 
 	public constructor() {
 		this.#client = new Client({
@@ -44,6 +48,11 @@ export class CubismClient {
 	async registerCommands() {
 		CommandManager.commands.forEach((command) => {
 			this.commands.set(command.name, command);
+		});
+
+		SubCommandManager.subCommands.forEach((command) => {
+			if (!command.groupName) this.subCommands.set(command.commandName + "." + command.name, command);
+			else this.subCommands.set(command.commandName + "." + command.groupName + "." + command.name, command);
 		});
 
 		const rest = new REST({ version: "10" }).setToken(process.env.TOKEN!);
