@@ -5,7 +5,7 @@ export const UnbanInteractionCommand: CommandInteractionOptions = {
 	name: "unban",
 	description: "Unban a user from the server.",
 	type: ApplicationCommandType.ChatInput,
-	testOnly: true,
+	testOnly: false,
 	options: [
 		{
 			name: "id",
