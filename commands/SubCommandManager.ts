@@ -2,9 +2,15 @@ import { ChatInputCommandInteraction } from "discord.js";
 import { SubCommandInteractionOptions } from "../types/SubCommand";
 import { SubCommand } from "./SubCommand";
 import { logger } from "../logger";
+import SetupMuteSubCommand from "./utilities/sub/setup-mute";
+import SetupTicketsSubCommand from "./utilities/sub/setup-tickets";
 
 export class SubCommandManager {
-	subCommands: SubCommand<SubCommandInteractionOptions>[] = [];
+	subCommands: SubCommand<SubCommandInteractionOptions>[] = [
+		/* Setup */
+		new SetupMuteSubCommand(),
+		new SetupTicketsSubCommand(),
+	];
 
 	getAllCommands() {
 		return this.subCommands;

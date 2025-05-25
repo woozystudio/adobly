@@ -3,7 +3,6 @@ import { CommandInteractionOptions } from "../types/Command";
 import { Command } from "./Command";
 import { logger } from "../logger";
 import PingCommand from "./utilities/ping";
-import SetupTicketsCommand from "./utilities/setup-tickets";
 import TestCommand from "./utilities/test";
 import TimestampCommand from "./utilities/timestamp";
 import UserInfoCommand from "./information/userinfo";
@@ -14,8 +13,8 @@ import BanCommand from "./moderation/ban";
 import KickCommand from "./moderation/kick";
 import UnbanCommand from "./moderation/unban";
 import MuteCommand from "./moderation/mute";
-import SetupMuteCommand from "./moderation/setup-mute";
 import UnmuteCommand from "./moderation/unmute";
+import SetupCommand from "./utilities/setup";
 
 export class CommandManager {
 	commands: Command<CommandInteractionOptions>[] = [
@@ -36,8 +35,7 @@ export class CommandManager {
 		new UnmuteCommand(),
 
 		/* Setup */
-		new SetupTicketsCommand(),
-		new SetupMuteCommand(),
+		new SetupCommand(),
 
 		/* Dev Tools */
 		new TimestampCommand(),
