@@ -16,6 +16,7 @@ import CubismClient from "../../../structures/CubismClient";
 import { EventListener } from "../../EventListener";
 import i18next from "i18next";
 import Language from "../../../mongo/Language";
+import { logger } from "../../../logger";
 
 export default class InteractionCreateEventListener extends EventListener {
 	constructor() {
@@ -36,11 +37,21 @@ export default class InteractionCreateEventListener extends EventListener {
 		}
 
 		if (interaction.isChatInputCommand()) {
-			const command = CubismClient.commands.get(interaction.commandName);
+			const command = CubismClient.commands.get(interaction.commandName)!;
 
-			if (!command) return;
+			if (!command) return CubismClient.commands.delete(interaction.commandName);
 
-			return command.chatInput(interaction, locale, CubismClient);
+			try {
+				const subCommandGroup = interaction.options.getSubcommandGroup(false);
+				const subCommand = `${interaction.commandName}${subCommandGroup ? `.${subCommandGroup}` : ""}.${interaction.options.getSubcommand(false) || ""}`;
+
+				return (
+					CubismClient.subCommands.get(subCommand)?.chatInput(interaction, locale, CubismClient) ||
+					command.chatInput(interaction, locale, CubismClient)
+				);
+			} catch (error) {
+				return logger.error(`Command ${interaction.commandName} not found.`, error);
+			}
 		} else if (interaction.isButton()) {
 			if (interaction.customId === "create-ticket") {
 				const interactionChannel = interaction.channel as TextChannel;
