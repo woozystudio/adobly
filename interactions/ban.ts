@@ -1,10 +1,11 @@
-import { ApplicationCommandOptionType, ApplicationCommandType } from "discord.js";
+import { ApplicationCommandOptionType, ApplicationCommandType, PermissionFlagsBits } from "discord.js";
 import { CommandInteractionOptions } from "../types/Command";
 
 export const BanInteractionCommand: CommandInteractionOptions = {
 	name: "ban",
 	description: "Ban a user from the server.",
 	type: ApplicationCommandType.ChatInput,
+	userPermissions: PermissionFlagsBits.BanMembers,
 	testOnly: false,
 	options: [
 		{

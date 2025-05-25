@@ -1,10 +1,11 @@
-import { ApplicationCommandOptionType, ApplicationCommandType } from "discord.js";
+import { ApplicationCommandOptionType, ApplicationCommandType, PermissionFlagsBits } from "discord.js";
 import { CommandInteractionOptions } from "../types/Command";
 
 export const UnmuteInteractionCommand: CommandInteractionOptions = {
 	name: "unmute",
 	description: "Unmutes a server user.",
 	type: ApplicationCommandType.ChatInput,
+	userPermissions: PermissionFlagsBits.MuteMembers | PermissionFlagsBits.ModerateMembers,
 	testOnly: false,
 	options: [
 		{

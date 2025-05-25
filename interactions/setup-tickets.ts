@@ -1,10 +1,11 @@
-import { ApplicationCommandOptionType, ApplicationCommandType, ChannelType } from "discord.js";
+import { ApplicationCommandOptionType, ApplicationCommandType, ChannelType, PermissionFlagsBits } from "discord.js";
 import { CommandInteractionOptions } from "../types/Command";
 
 export const SetupTicketsInteractionCommand: CommandInteractionOptions = {
 	name: "setup-tickets",
 	description: "Set up the ticketing system on your server.",
 	type: ApplicationCommandType.ChatInput,
+	userPermissions: PermissionFlagsBits.ManageGuild,
 	testOnly: false,
 	options: [
 		{

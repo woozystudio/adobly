@@ -1,10 +1,11 @@
-import { ApplicationCommandOptionType, ApplicationCommandType } from "discord.js";
+import { ApplicationCommandOptionType, ApplicationCommandType, PermissionFlagsBits } from "discord.js";
 import { CommandInteractionOptions } from "../types/Command";
 
 export const KickInteractionCommand: CommandInteractionOptions = {
 	name: "kick",
 	description: "Kicks a user from the server.",
 	type: ApplicationCommandType.ChatInput,
+	userPermissions: PermissionFlagsBits.KickMembers,
 	testOnly: false,
 	options: [
 		{

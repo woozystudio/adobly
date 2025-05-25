@@ -6,6 +6,7 @@ export abstract class Command<C extends CommandInteractionOptions> {
 	public name: C["name"];
 	public description: C["description"];
 	public type: C["type"];
+	public default_member_permissions: C["userPermissions"];
 	public options?: C["options"];
 	public testOnly: C["testOnly"];
 
@@ -13,6 +14,7 @@ export abstract class Command<C extends CommandInteractionOptions> {
 		this.name = options.name;
 		this.description = options.description;
 		this.type = options.type;
+		this.default_member_permissions = options.userPermissions;
 		this.options = options.options;
 		this.testOnly = options.testOnly;
 	}

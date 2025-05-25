@@ -1,10 +1,11 @@
-import { ApplicationCommandOptionType, ApplicationCommandType } from "discord.js";
+import { ApplicationCommandOptionType, ApplicationCommandType, PermissionFlagsBits } from "discord.js";
 import { CommandInteractionOptions } from "../types/Command";
 
 export const TimestampInteractionCommand: CommandInteractionOptions = {
 	name: "timestamp",
 	description: "Converts a common date and time to a unix timestamp date.",
 	type: ApplicationCommandType.ChatInput,
+	userPermissions: PermissionFlagsBits.UseApplicationCommands,
 	testOnly: false,
 	options: [
 		{

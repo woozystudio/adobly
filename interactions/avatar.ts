@@ -1,10 +1,11 @@
-import { ApplicationCommandOptionType, ApplicationCommandType } from "discord.js";
+import { ApplicationCommandOptionType, ApplicationCommandType, PermissionFlagsBits } from "discord.js";
 import { CommandInteractionOptions } from "../types/Command";
 
 export const AvatarInteractionCommand: CommandInteractionOptions = {
 	name: "avatar",
 	description: "View a user avatar.",
 	type: ApplicationCommandType.ChatInput,
+	userPermissions: PermissionFlagsBits.UseApplicationCommands,
 	testOnly: false,
 	options: [
 		{

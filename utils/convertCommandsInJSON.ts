@@ -12,6 +12,7 @@ export default function convertCommandsInJSON(
 			name: command.name,
 			description: command.description,
 			type: command.type,
+			default_member_permissions: command.default_member_permissions.toString(),
 			testOnly: command.testOnly,
 			options: command.options,
 		});

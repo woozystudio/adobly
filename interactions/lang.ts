@@ -1,10 +1,11 @@
-import { ApplicationCommandOptionType, ApplicationCommandType } from "discord.js";
+import { ApplicationCommandOptionType, ApplicationCommandType, PermissionFlagsBits } from "discord.js";
 import { CommandInteractionOptions } from "../types/Command";
 
 export const LangInteractionCommand: CommandInteractionOptions = {
 	name: "lang",
 	description: "Change the bot language to suit your needs.",
 	type: ApplicationCommandType.ChatInput,
+	userPermissions: PermissionFlagsBits.ManageGuild,
 	testOnly: false,
 	options: [
 		{

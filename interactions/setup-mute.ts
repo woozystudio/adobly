@@ -1,9 +1,10 @@
-import { ApplicationCommandOptionType, ApplicationCommandType } from "discord.js";
+import { ApplicationCommandOptionType, ApplicationCommandType, PermissionFlagsBits } from "discord.js";
 import { CommandInteractionOptions } from "../types/Command";
 
 export const SetupMuteInteractionCommand: CommandInteractionOptions = {
 	name: "setup-mute",
 	description: "Set up the muting system on your server.",
+	userPermissions: PermissionFlagsBits.ManageGuild,
 	type: ApplicationCommandType.ChatInput,
 	testOnly: false,
 	options: [
