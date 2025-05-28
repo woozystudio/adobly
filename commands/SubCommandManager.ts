@@ -4,12 +4,18 @@ import { SubCommand } from "./SubCommand";
 import { logger } from "../logger";
 import SetupMuteSubCommand from "./utilities/sub/setup-mute";
 import SetupTicketsSubCommand from "./utilities/sub/setup-tickets";
+import SetupAutoRolesSubCommand from "./autoroles/setup-autoroles";
+import { AutoRolesAddSubCommand } from "./autoroles/sub/add";
 
 export class SubCommandManager {
 	subCommands: SubCommand<SubCommandInteractionOptions>[] = [
 		/* Setup */
 		new SetupMuteSubCommand(),
 		new SetupTicketsSubCommand(),
+		new SetupAutoRolesSubCommand(),
+
+		/* AutoRoles */
+		new AutoRolesAddSubCommand(),
 	];
 
 	getAllCommands() {
