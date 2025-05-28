@@ -35,5 +35,19 @@ export const SetupInteractionCommand: CommandInteractionOptions = {
 				},
 			],
 		},
+		{
+			name: "autoroles",
+			description: "Set up the autoroles system on your server.",
+			type: ApplicationCommandOptionType.Subcommand,
+			options: [
+				{
+					name: "channel",
+					description: "Select a channel to send the message to create the autoroles.",
+					type: ApplicationCommandOptionType.Channel,
+					channel_types: [ChannelType.GuildText],
+					required: false,
+				},
+			],
+		},
 	],
 } as const;
