@@ -15,6 +15,8 @@ import UnbanCommand from "./moderation/unban";
 import MuteCommand from "./moderation/mute";
 import UnmuteCommand from "./moderation/unmute";
 import SetupCommand from "./utilities/setup";
+import UptimeCommand from "./utilities/uptime";
+import { AutoRolesCommand } from "./autoroles/autoroles";
 
 export class CommandManager {
 	commands: Command<CommandInteractionOptions>[] = [
@@ -26,6 +28,8 @@ export class CommandManager {
 
 		/* Management */
 		new LangCommand(),
+		new UptimeCommand(),
+		new SetupCommand(),
 
 		/* Moderation */
 		new BanCommand(),
@@ -34,8 +38,8 @@ export class CommandManager {
 		new MuteCommand(),
 		new UnmuteCommand(),
 
-		/* Setup */
-		new SetupCommand(),
+		/* Systems */
+		new AutoRolesCommand(),
 
 		/* Dev Tools */
 		new TimestampCommand(),
