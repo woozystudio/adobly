@@ -125,6 +125,32 @@ export default class InteractionCreateEventListener extends EventListener {
 				}, 5000);
 
 				return interaction.reply({ embeds: [CloseEmbed] });
+			} else if (interaction.customId.startsWith("autorole-")) {
+				const roleId = interaction.customId.split("-")[2] as string;
+				const role = interaction.guild?.roles.cache.get(roleId);
+
+				if (!role) {
+					return interaction.reply({
+						content: i18next.t("command.common.errors.no_role", { lng: locale }),
+						flags: MessageFlags.Ephemeral,
+					});
+				}
+
+				const member = interaction.member as GuildMember;
+
+				if (member.roles.cache.has(role.id)) {
+					await member.roles.remove(role);
+					return interaction.reply({
+						content: `\`✅\` ${i18next.t("command.utility.autoroles.remove.success", { lng: locale, role: `${role}` })}`,
+						flags: MessageFlags.Ephemeral,
+					});
+				} else {
+					await member.roles.add(role);
+					return interaction.reply({
+						content: `\`✅\` ${i18next.t("command.utility.autoroles.add.success", { lng: locale, role: `${role}` })}`,
+						flags: MessageFlags.Ephemeral,
+					});
+				}
 			} else return;
 		} else return;
 	}
