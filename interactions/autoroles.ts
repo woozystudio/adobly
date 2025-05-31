@@ -51,5 +51,18 @@ export const AutoRolesInteractionCommand: CommandInteractionOptions = {
 				},
 			],
 		},
+		{
+			name: "remove",
+			description: "Remove a role from the autorole system.",
+			type: ApplicationCommandOptionType.Subcommand,
+			options: [
+				{
+					name: "role",
+					description: "Select a role from the server.",
+					type: ApplicationCommandOptionType.Role,
+					required: true,
+				},
+			],
+		},
 	],
 } as const;
