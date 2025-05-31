@@ -51,8 +51,9 @@
 					"success": "## Configuración de Autoroles <:new_red:1376383815370670132>\nEl sistema ha sido configurado correctamente, para seguir configurando el sistema puedes ejecutar los siguientes comandos:\n\n{{add_command}} - Añade roles al menú de autoroles. (Máx. 8)\n{{remove_command}} - Elimina roles del menú de autoroles. (Mín. 1)\n{{sendmessage_command}} - Manda el mensaje con los autoroles al canal seleccionado.\n{{list_command}} - Muestra la lista detallada de cada rol añadido al sistema.\n{{edit_command}} - Edita un autorole en específico."
 				},
 				"sucessfully_added": "El rol {{role}} se ha añadido correctamente.",
+				"sucessfully_removed": "El rol {{role}} se ha removido correctamente.",
 				"remove": {
-					"success": "El rol {{role}} se ha eliminado de tu usuario correctamente."
+					"success": "El rol {{role}} se ha removido de tu usuario correctamente."
 				},
 				"add": {
 					"success": "El rol {{role}} se ha añadido a tu usuario correctamente."
