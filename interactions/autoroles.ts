@@ -6,7 +6,7 @@ export const AutoRolesInteractionCommand: CommandInteractionOptions = {
 	description: "Configure the autorol system your way.",
 	type: ApplicationCommandType.ChatInput,
 	userPermissions: PermissionFlagsBits.ManageGuild,
-	testOnly: false,
+	testOnly: true,
 	options: [
 		{
 			name: "add",
