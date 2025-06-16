@@ -27,7 +27,10 @@ export class UserInfoCommand extends Command<typeof UserInfoInteractionCommand> 
 				},
 				{
 					name: `${i18next.t("command.common.roles", { lng: locale })}`,
-					value: `${member?.roles.cache.map((role) => `<@&${role.id}>`).join(" ")}`,
+					value: `${member?.roles.cache
+						.filter((role) => role.id !== member.guild.id)
+						.map((role) => `<@&${role.id}>`)
+						.join(" ")}`,
 				},
 				{
 					name: `${i18next.t("command.common.permissions", { lng: locale })}`,
