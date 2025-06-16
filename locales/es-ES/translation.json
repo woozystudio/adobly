@@ -1,5 +1,6 @@
 {
 	"common": {
+		"testMode": "Este componente se encuentra en fase de prueba por el momento.",
 		"errors": {}
 	},
 	"command": {
