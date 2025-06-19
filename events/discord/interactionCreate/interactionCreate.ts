@@ -46,7 +46,8 @@ export default class InteractionCreateEventListener extends EventListener {
 				const subCommand = `${interaction.commandName}${subCommandGroup ? `.${subCommandGroup}` : ""}.${interaction.options.getSubcommand(false) || ""}`;
 
 				return (
-					client.subCommands.get(subCommand)?.chatInput(interaction, client) || command.chatInput(interaction, client)
+					client.subCommands.get(subCommand)?.chatInput(interaction, locale, client) ||
+					command.chatInput(interaction, locale, client)
 				);
 			} catch (error) {
 				return logger.error(`Command ${interaction.commandName} not found.`, error);
