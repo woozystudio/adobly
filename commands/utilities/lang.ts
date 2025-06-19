@@ -1,9 +1,9 @@
 import { ChatInputCommandInteraction } from "discord.js";
-import { Command } from "../Command.js";
 import { LangInteractionCommand } from "../../interactions/lang.js";
 import Language from "../../mongo/Language.js";
 import SuccessEmbed from "../../embeds/SuccessEmbed.js";
 import i18next from "i18next";
+import { Command } from "@adobly/framework";
 
 export class LangCommand extends Command<typeof LangInteractionCommand> {
 	public constructor() {
