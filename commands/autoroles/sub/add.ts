@@ -8,19 +8,18 @@ import {
 	TextChannel,
 } from "discord.js";
 import { AutoRolesAddInteractionSubCommand } from "../../../interactions/sub/autoroles-add";
-import { SubCommand } from "../../SubCommand";
 import AutoRolesSetup from "../../../mongo/AutoRolesSetup";
 import ErrorEmbed from "../../../embeds/ErrorEmbed";
 import i18next from "i18next";
 import { Modules } from "../../../consts/enums";
-import { CubismClient } from "../../../structures/CubismClient";
+import { AdoblyClient, SubCommand } from "@adobly/framework";
 
 export class AutoRolesAddSubCommand extends SubCommand<typeof AutoRolesAddInteractionSubCommand> {
 	constructor() {
 		super(AutoRolesAddInteractionSubCommand);
 	}
 
-	override async chatInput(interaction: ChatInputCommandInteraction, locale: string, bot: CubismClient) {
+	override async chatInput(interaction: ChatInputCommandInteraction, bot: AdoblyClient, locale: string) {
 		const role = interaction.options.getRole("role") as Role;
 		const label = interaction.options.getString("label") || `@${role.name}`;
 		const emoji = interaction.options.getString("emoji") || "";

@@ -1,14 +1,14 @@
 import { ChatInputCommandInteraction } from "discord.js";
-import { SubCommand } from "../SubCommand.js";
 import { SetupAutoRolesInteractionSubCommand } from "../../interactions/sub/setup-autoroles.js";
 import i18next from "i18next";
+import { AdoblyClient, SubCommand } from "@adobly/framework";
 
 export class SetupAutoRolesSubCommand extends SubCommand<typeof SetupAutoRolesInteractionSubCommand> {
 	constructor() {
 		super(SetupAutoRolesInteractionSubCommand);
 	}
 
-	override async chatInput(interaction: ChatInputCommandInteraction, locale: string) {
+	override async chatInput(interaction: ChatInputCommandInteraction, _bot: AdoblyClient, locale: string) {
 		/* const channel = (interaction.options.getChannel("channel") as TextChannel) || interaction.channel;
 
 		let data = await AutoRolesSetup.findOne({ GuildID: interaction.guildId }, { new: true, upsert: true });
