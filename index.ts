@@ -4,6 +4,8 @@ import dotenv from "dotenv";
 import CommandManager from "./commands/CommandManager";
 import SubCommandManager from "./commands/SubCommandManager";
 import DiscordEventManager from "./events/discord/DiscordEventManager";
+import { logger } from "./logger";
+import { connect } from "mongoose";
 dotenv.config();
 
 export const client = new AdoblyClient({
@@ -22,7 +24,11 @@ export const client = new AdoblyClient({
 	},
 });
 
-client.start();
+client.start().then(() => {
+	connect(`${process.env.MONGO_URI}`, { appName: "adobly-v1" }).then(() => {
+		logger.info("MongoDB database connected.");
+	});
+});
 
 commandManager.addCommands(CommandManager.commands);
 subCommandManager.addSubCommands(SubCommandManager.subCommands);
