@@ -1,7 +1,5 @@
-import { ChatInputCommandInteraction } from "discord.js";
-import { CommandInteractionOptions } from "../types/Command";
-import { Command } from "./Command";
-import { logger } from "../logger";
+import { AutoRolesCommand } from "./autoroles/autoroles";
+import { Command, CommandOptions } from "@adobly/framework";
 import PingCommand from "./utilities/ping";
 import TestCommand from "./utilities/test";
 import TimestampCommand from "./utilities/timestamp";
@@ -16,10 +14,9 @@ import MuteCommand from "./moderation/mute";
 import UnmuteCommand from "./moderation/unmute";
 import SetupCommand from "./utilities/setup";
 import UptimeCommand from "./utilities/uptime";
-import { AutoRolesCommand } from "./autoroles/autoroles";
 
 export class CommandManager {
-	commands: Command<CommandInteractionOptions>[] = [
+	commands: Command<CommandOptions>[] = [
 		/* Informaton */
 		new PingCommand(),
 		new UserInfoCommand(),
@@ -47,24 +44,6 @@ export class CommandManager {
 		/* Owner Tools */
 		new TestCommand(),
 	];
-
-	getAllCommands() {
-		return this.commands;
-	}
-
-	findCommand(name: string) {
-		return this.getAllCommands().find((c) => c.name === name.toLowerCase()) ?? null;
-	}
-
-	async execute(interaction: ChatInputCommandInteraction) {
-		const command = this.findCommand(interaction.commandName);
-
-		try {
-			await command?.chatInput(interaction);
-		} catch (e) {
-			logger.error(e);
-		}
-	}
 }
 
 export default new CommandManager();
