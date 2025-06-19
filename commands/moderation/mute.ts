@@ -1,19 +1,18 @@
 import { ChatInputCommandInteraction, GuildMember, RoleResolvable, User } from "discord.js";
-import { Command } from "../Command.js";
 import { MuteInteractionCommand } from "../../interactions/mute.js";
-import { CubismClient } from "../../structures/CubismClient.js";
 import i18next from "i18next";
 import ErrorEmbed from "../../embeds/ErrorEmbed.js";
 import SuccessEmbed from "../../embeds/SuccessEmbed.js";
 import Mute from "../../mongo/Mute.js";
 import { Modules } from "../../consts/enums.js";
+import { AdoblyClient, Command } from "@adobly/framework";
 
 export class MuteCommand extends Command<typeof MuteInteractionCommand> {
 	public constructor() {
 		super(MuteInteractionCommand);
 	}
 
-	override async chatInput(interaction: ChatInputCommandInteraction, locale: string, bot: CubismClient) {
+	override async chatInput(interaction: ChatInputCommandInteraction, locale: string, bot: AdoblyClient) {
 		const target = interaction.options.getUser("target") as User;
 		const reason = interaction.options.getString("reason") as string;
 		const interactionMember = interaction.member as GuildMember;
