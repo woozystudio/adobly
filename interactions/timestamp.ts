@@ -1,7 +1,7 @@
 import { ApplicationCommandOptionType, ApplicationCommandType, PermissionFlagsBits } from "discord.js";
-import { CommandInteractionOptions } from "../types/Command";
+import { CommandOptions } from "@adobly/framework";
 
-export const TimestampInteractionCommand: CommandInteractionOptions = {
+export const TimestampInteractionCommand: CommandOptions = {
 	name: "timestamp",
 	description: "Converts a common date and time to a unix timestamp date.",
 	type: ApplicationCommandType.ChatInput,
