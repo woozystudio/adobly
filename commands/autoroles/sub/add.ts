@@ -19,7 +19,7 @@ export class AutoRolesAddSubCommand extends SubCommand<typeof AutoRolesAddIntera
 		super(AutoRolesAddInteractionSubCommand);
 	}
 
-	override async chatInput(interaction: ChatInputCommandInteraction, bot: AdoblyClient, locale: string) {
+	override async chatInput(interaction: ChatInputCommandInteraction, locale: string, bot: AdoblyClient) {
 		const role = interaction.options.getRole("role") as Role;
 		const label = interaction.options.getString("label") || `@${role.name}`;
 		const emoji = interaction.options.getString("emoji") || "";

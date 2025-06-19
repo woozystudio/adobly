@@ -19,7 +19,7 @@ export class AutoRolesRemoveSubCommand extends SubCommand<typeof AutoRolesRemove
 		super(AutoRolesRemoveInteractionSubCommand);
 	}
 
-	override async chatInput(interaction: ChatInputCommandInteraction, bot: AdoblyClient, locale: string) {
+	override async chatInput(interaction: ChatInputCommandInteraction, locale: string, bot: AdoblyClient) {
 		const role = interaction.options.getRole("role") as Role;
 
 		const data = await AutoRolesSetup.findOne({ GuildID: interaction.guildId });
