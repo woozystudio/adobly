@@ -1,7 +1,7 @@
+import { CommandOptions } from "@adobly/framework";
 import { ApplicationCommandOptionType, ApplicationCommandType, ButtonStyle, PermissionFlagsBits } from "discord.js";
-import { CommandInteractionOptions } from "../types/Command";
 
-export const AutoRolesInteractionCommand: CommandInteractionOptions = {
+export const AutoRolesInteractionCommand: CommandOptions = {
 	name: "autoroles",
 	description: "Configure the autorol system your way.",
 	type: ApplicationCommandType.ChatInput,
