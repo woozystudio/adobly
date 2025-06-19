@@ -3,6 +3,7 @@ import { ActivityType, GatewayIntentBits, PresenceUpdateStatus } from "discord.j
 import dotenv from "dotenv";
 import CommandManager from "./commands/CommandManager";
 import SubCommandManager from "./commands/SubCommandManager";
+import DiscordEventManager from "./events/discord/DiscordEventManager";
 dotenv.config();
 
 export const client = new AdoblyClient({
@@ -25,3 +26,4 @@ client.start();
 
 commandManager.addCommands(CommandManager.commands);
 subCommandManager.addSubCommands(SubCommandManager.subCommands);
+new DiscordEventManager().subscribe();
