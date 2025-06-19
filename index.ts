@@ -1,10 +1,9 @@
-import { AdoblyClient, commandManager, subCommandManager } from "@adobly/framework";
+import { AdoblyClient, commandManager, logger, subCommandManager } from "@adobly/framework";
 import { ActivityType, GatewayIntentBits, PresenceUpdateStatus } from "discord.js";
 import dotenv from "dotenv";
 import CommandManager from "./commands/CommandManager";
 import SubCommandManager from "./commands/SubCommandManager";
 import DiscordEventManager from "./events/discord/DiscordEventManager";
-import { logger } from "./logger";
 import { connect } from "mongoose";
 dotenv.config();
 

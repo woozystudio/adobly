@@ -14,8 +14,7 @@ import {
 } from "discord.js";
 import i18next from "i18next";
 import Language from "../../../mongo/Language";
-import { logger } from "../../../logger";
-import { EventListener } from "@adobly/framework";
+import { EventListener, logger } from "@adobly/framework";
 import { client } from "../../..";
 
 export default class InteractionCreateEventListener extends EventListener {

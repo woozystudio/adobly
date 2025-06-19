@@ -1,8 +1,7 @@
 import { Events } from "discord.js";
-import { logger } from "../../../logger";
 import i18next from "i18next";
 import Backend from "i18next-fs-backend";
-import { EventListener } from "@adobly/framework";
+import { EventListener, logger } from "@adobly/framework";
 import { client } from "../../..";
 
 export default class ReadyEventListener extends EventListener {
