@@ -1,7 +1,7 @@
 import { ApplicationCommandOptionType, ApplicationCommandType, PermissionFlagsBits } from "discord.js";
-import { CommandInteractionOptions } from "../types/Command";
+import { CommandOptions } from "@adobly/framework";
 
-export const UnbanInteractionCommand: CommandInteractionOptions = {
+export const UnbanInteractionCommand: CommandOptions = {
 	name: "unban",
 	description: "Unban a user from the server.",
 	type: ApplicationCommandType.ChatInput,
