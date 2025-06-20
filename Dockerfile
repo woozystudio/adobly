@@ -1,12 +1,12 @@
-FROM node:slim
+FROM node:latest
 
 ENV NODE_ENV=production
 
 WORKDIR /usr/src/app
 
-COPY ["package.json", "./"]
+COPY ["package.json", ".npmrc", "./"]
 
-RUN npm install --production --silent
+RUN npm install --production
 
 RUN npm install -g typescript
 
