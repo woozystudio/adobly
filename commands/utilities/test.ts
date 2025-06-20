@@ -1,6 +1,6 @@
 import { ChatInputCommandInteraction } from "discord.js";
-import { Command } from "../Command.js";
 import { TestInteractionCommand } from "../../interactions/test.js";
+import { Command } from "@adobly/framework";
 
 export class TestCommand extends Command<typeof TestInteractionCommand> {
 	constructor() {

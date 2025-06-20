@@ -28,6 +28,7 @@ jspm_packages/
 
 # Optional npm cache directory
 .npm
+.npmrc
 
 # Output of 'npm pack'
 *.tgz

@@ -1,7 +1,7 @@
 import { ApplicationCommandOptionType, ApplicationCommandType, PermissionFlagsBits } from "discord.js";
-import { CommandInteractionOptions } from "../types/Command";
+import { CommandOptions } from "@adobly/framework";
 
-export const UserInfoInteractionCommand: CommandInteractionOptions = {
+export const UserInfoInteractionCommand: CommandOptions = {
 	name: "userinfo",
 	description: "See information about a server user.",
 	type: ApplicationCommandType.ChatInput,

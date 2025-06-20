@@ -1,7 +1,7 @@
 import { ApplicationCommandType, PermissionFlagsBits } from "discord.js";
-import { CommandInteractionOptions } from "../types/Command";
+import { CommandOptions } from "@adobly/framework";
 
-export const GuildInfoInteractionCommand: CommandInteractionOptions = {
+export const GuildInfoInteractionCommand: CommandOptions = {
 	name: "guildinfo",
 	description: "See server information.",
 	type: ApplicationCommandType.ChatInput,

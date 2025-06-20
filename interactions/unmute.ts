@@ -1,7 +1,7 @@
 import { ApplicationCommandOptionType, ApplicationCommandType, PermissionFlagsBits } from "discord.js";
-import { CommandInteractionOptions } from "../types/Command";
+import { CommandOptions } from "@adobly/framework";
 
-export const UnmuteInteractionCommand: CommandInteractionOptions = {
+export const UnmuteInteractionCommand: CommandOptions = {
 	name: "unmute",
 	description: "Unmutes a server user.",
 	type: ApplicationCommandType.ChatInput,

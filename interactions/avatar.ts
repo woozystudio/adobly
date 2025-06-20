@@ -1,7 +1,7 @@
 import { ApplicationCommandOptionType, ApplicationCommandType, PermissionFlagsBits } from "discord.js";
-import { CommandInteractionOptions } from "../types/Command";
+import { CommandOptions } from "@adobly/framework";
 
-export const AvatarInteractionCommand: CommandInteractionOptions = {
+export const AvatarInteractionCommand: CommandOptions = {
 	name: "avatar",
 	description: "View a user avatar.",
 	type: ApplicationCommandType.ChatInput,
