@@ -8,19 +8,18 @@ import {
 	TextChannel,
 } from "discord.js";
 import { AutoRolesRemoveInteractionSubCommand } from "../../../interactions/sub/autoroles-remove";
-import { SubCommand } from "../../SubCommand";
 import AutoRolesSetup from "../../../mongo/AutoRolesSetup";
 import ErrorEmbed from "../../../embeds/ErrorEmbed";
 import i18next from "i18next";
 import { Modules } from "../../../consts/enums";
-import { CubismClient } from "../../../structures/CubismClient";
+import { AdoblyClient, SubCommand } from "@adobly/framework";
 
 export class AutoRolesRemoveSubCommand extends SubCommand<typeof AutoRolesRemoveInteractionSubCommand> {
 	constructor() {
 		super(AutoRolesRemoveInteractionSubCommand);
 	}
 
-	override async chatInput(interaction: ChatInputCommandInteraction, locale: string, bot: CubismClient) {
+	override async chatInput(interaction: ChatInputCommandInteraction, locale: string, bot: AdoblyClient) {
 		const role = interaction.options.getRole("role") as Role;
 
 		const data = await AutoRolesSetup.findOne({ GuildID: interaction.guildId });

@@ -1,7 +1,7 @@
 import { ApplicationCommandType, PermissionFlagsBits } from "discord.js";
-import { CommandInteractionOptions } from "../types/Command";
+import { CommandOptions } from "@adobly/framework";
 
-export const PingInteractionCommand: CommandInteractionOptions = {
+export const PingInteractionCommand: CommandOptions = {
 	name: "ping",
 	description: "Receive application latency.",
 	type: ApplicationCommandType.ChatInput,

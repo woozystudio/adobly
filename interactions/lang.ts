@@ -1,7 +1,7 @@
 import { ApplicationCommandOptionType, ApplicationCommandType, PermissionFlagsBits } from "discord.js";
-import { CommandInteractionOptions } from "../types/Command";
+import { CommandOptions } from "@adobly/framework";
 
-export const LangInteractionCommand: CommandInteractionOptions = {
+export const LangInteractionCommand: CommandOptions = {
 	name: "lang",
 	description: "Change the bot language to suit your needs.",
 	type: ApplicationCommandType.ChatInput,

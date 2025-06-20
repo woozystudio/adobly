@@ -1,9 +1,9 @@
 import { ChatInputCommandInteraction, Role } from "discord.js";
-import { SubCommand } from "../../SubCommand.js";
 import { SetupMuteInteractionSubCommand } from "../../../interactions/sub/setup-mute.js";
 import i18next from "i18next";
 import Mute from "../../../mongo/Mute.js";
 import SuccessEmbed from "../../../embeds/SuccessEmbed.js";
+import { SubCommand } from "@adobly/framework";
 
 export class SetupMuteSubCommand extends SubCommand<typeof SetupMuteInteractionSubCommand> {
 	constructor() {

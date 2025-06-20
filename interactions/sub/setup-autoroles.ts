@@ -1,6 +1,7 @@
-import { SubCommandInteractionOptions } from "../../types/SubCommand";
+import { SubCommandOptions } from "@adobly/framework";
 
-export const SetupAutoRolesInteractionSubCommand: SubCommandInteractionOptions = {
+export const SetupAutoRolesInteractionSubCommand: SubCommandOptions = {
 	name: "autoroles",
 	commandName: "setup",
+	groupName: "",
 } as const;

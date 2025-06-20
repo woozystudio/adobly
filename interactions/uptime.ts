@@ -1,7 +1,7 @@
 import { ApplicationCommandType, PermissionFlagsBits } from "discord.js";
-import { CommandInteractionOptions } from "../types/Command";
+import { CommandOptions } from "@adobly/framework";
 
-export const UptimeInteractionCommand: CommandInteractionOptions = {
+export const UptimeInteractionCommand: CommandOptions = {
 	name: "uptime",
 	description: "It shows how long the client has been active.",
 	type: ApplicationCommandType.ChatInput,

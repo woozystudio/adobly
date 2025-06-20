@@ -7,9 +7,9 @@ import {
 	MessageFlags,
 	TextChannel,
 } from "discord.js";
-import { SubCommand } from "../../SubCommand.js";
 import { SetupTicketsInteractionSubCommand } from "../../../interactions/sub/setup-tickets.js";
 import i18next from "i18next";
+import { SubCommand } from "@adobly/framework";
 
 export class SetupTicketsSubCommand extends SubCommand<typeof SetupTicketsInteractionSubCommand> {
 	constructor() {

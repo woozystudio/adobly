@@ -1,6 +1,7 @@
-import { SubCommandInteractionOptions } from "../../types/SubCommand";
+import { SubCommandOptions } from "@adobly/framework";
 
-export const SetupMuteInteractionSubCommand: SubCommandInteractionOptions = {
+export const SetupMuteInteractionSubCommand: SubCommandOptions = {
 	name: "mute",
 	commandName: "setup",
+	groupName: "",
 } as const;

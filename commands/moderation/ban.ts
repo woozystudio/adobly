@@ -1,17 +1,16 @@
 import { ChatInputCommandInteraction, GuildMember, User } from "discord.js";
-import { Command } from "../Command.js";
 import { BanInteractionCommand } from "../../interactions/ban.js";
-import { CubismClient } from "../../structures/CubismClient.js";
 import ErrorEmbed from "../../embeds/ErrorEmbed.js";
 import i18next from "i18next";
 import SuccessEmbed from "../../embeds/SuccessEmbed.js";
+import { AdoblyClient, Command } from "@adobly/framework";
 
 export class BanCommand extends Command<typeof BanInteractionCommand> {
 	public constructor() {
 		super(BanInteractionCommand);
 	}
 
-	override async chatInput(interaction: ChatInputCommandInteraction, locale: string, bot: CubismClient) {
+	override async chatInput(interaction: ChatInputCommandInteraction, locale: string, bot: AdoblyClient) {
 		const target = interaction.options.getUser("target") as User;
 		const reason = interaction.options.getString("reason") as string;
 		const interactionMember = interaction.member as GuildMember;

@@ -1,9 +1,9 @@
 import { ChatInputCommandInteraction } from "discord.js";
-import { Command } from "../Command.js";
 import { UnbanInteractionCommand } from "../../interactions/unban.js";
 import ErrorEmbed from "../../embeds/ErrorEmbed.js";
 import i18next from "i18next";
 import SuccessEmbed from "../../embeds/SuccessEmbed.js";
+import { Command } from "@adobly/framework";
 
 export class UnbanCommand extends Command<typeof UnbanInteractionCommand> {
 	public constructor() {

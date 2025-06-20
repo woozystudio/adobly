@@ -1,7 +1,7 @@
 import { ApplicationCommandType, PermissionFlagsBits } from "discord.js";
-import { CommandInteractionOptions } from "../types/Command";
+import { CommandOptions } from "@adobly/framework";
 
-export const TestInteractionCommand: CommandInteractionOptions = {
+export const TestInteractionCommand: CommandOptions = {
 	name: "test",
 	description: "Command to be used to test different features of the app.",
 	type: ApplicationCommandType.ChatInput,

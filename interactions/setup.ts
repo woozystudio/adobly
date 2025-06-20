@@ -1,7 +1,7 @@
 import { ApplicationCommandOptionType, ApplicationCommandType, ChannelType, PermissionFlagsBits } from "discord.js";
-import { CommandInteractionOptions } from "../types/Command";
+import { CommandOptions } from "@adobly/framework";
 
-export const SetupInteractionCommand: CommandInteractionOptions = {
+export const SetupInteractionCommand: CommandOptions = {
 	name: "setup",
 	description: "Configure the bot systems on your server",
 	type: ApplicationCommandType.ChatInput,

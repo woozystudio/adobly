@@ -12,11 +12,10 @@ import {
 	PermissionFlagsBits,
 	TextChannel,
 } from "discord.js";
-import CubismClient from "../../../structures/CubismClient";
-import { EventListener } from "../../EventListener";
 import i18next from "i18next";
 import Language from "../../../mongo/Language";
-import { logger } from "../../../logger";
+import { EventListener, logger } from "@adobly/framework";
+import { client } from "../../..";
 
 export default class InteractionCreateEventListener extends EventListener {
 	constructor() {
@@ -37,17 +36,17 @@ export default class InteractionCreateEventListener extends EventListener {
 		}
 
 		if (interaction.isChatInputCommand()) {
-			const command = CubismClient.commands.get(interaction.commandName)!;
+			const command = client.commands.get(interaction.commandName)!;
 
-			if (!command) return CubismClient.commands.delete(interaction.commandName);
+			if (!command) return client.commands.delete(interaction.commandName);
 
 			try {
 				const subCommandGroup = interaction.options.getSubcommandGroup(false);
 				const subCommand = `${interaction.commandName}${subCommandGroup ? `.${subCommandGroup}` : ""}.${interaction.options.getSubcommand(false) || ""}`;
 
 				return (
-					CubismClient.subCommands.get(subCommand)?.chatInput(interaction, locale, CubismClient) ||
-					command.chatInput(interaction, locale, CubismClient)
+					client.subCommands.get(subCommand)?.chatInput(interaction, locale, client) ||
+					command.chatInput(interaction, locale, client)
 				);
 			} catch (error) {
 				return logger.error(`Command ${interaction.commandName} not found.`, error);
