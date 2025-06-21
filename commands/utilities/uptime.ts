@@ -1,5 +1,5 @@
 import { ChatInputCommandInteraction, EmbedBuilder } from "discord.js";
-import { UptimeInteractionCommand } from "../../interactions/uptime.js";
+import { UptimeInteractionCommand } from "../../interactions/commands/uptime.js";
 import { AdoblyClient, Command } from "@adobly/framework";
 
 export class UptimeCommand extends Command<typeof UptimeInteractionCommand> {

@@ -7,7 +7,7 @@ import {
 	Role,
 	TextChannel,
 } from "discord.js";
-import { AutoRolesAddInteractionSubCommand } from "../../../interactions/sub/autoroles-add";
+import { AutoRolesAddInteractionSubCommand } from "../../../interactions/commands/sub/autoroles-add";
 import AutoRolesSetup from "../../../mongo/AutoRolesSetup";
 import ErrorEmbed from "../../../embeds/ErrorEmbed";
 import i18next from "i18next";

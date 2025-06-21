@@ -1,5 +1,5 @@
 import { ChatInputCommandInteraction, GuildMember, RoleResolvable, User } from "discord.js";
-import { MuteInteractionCommand } from "../../interactions/mute.js";
+import { MuteInteractionCommand } from "../../interactions/commands/mute.js";
 import i18next from "i18next";
 import ErrorEmbed from "../../embeds/ErrorEmbed.js";
 import SuccessEmbed from "../../embeds/SuccessEmbed.js";
