@@ -1,8 +1,9 @@
-import { AdoblyClient, commandManager, logger, subCommandManager } from "@adobly/framework";
+import { AdoblyClient, buttonManager, commandManager, logger, subCommandManager } from "@adobly/framework";
 import { ActivityType, GatewayIntentBits, PresenceUpdateStatus } from "discord.js";
 import dotenv from "dotenv";
 import CommandManager from "./commands/CommandManager";
 import SubCommandManager from "./commands/SubCommandManager";
+import ButtonManager from "./buttons/ButtonManager";
 import DiscordEventManager from "./events/discord/DiscordEventManager";
 import { connect } from "mongoose";
 dotenv.config();
@@ -31,4 +32,5 @@ client.start().then(() => {
 
 commandManager.addCommands(CommandManager.commands);
 subCommandManager.addSubCommands(SubCommandManager.subCommands);
+buttonManager.addButtons(ButtonManager.buttons);
 new DiscordEventManager().subscribe();
