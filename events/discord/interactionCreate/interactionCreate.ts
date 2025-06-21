@@ -1,4 +1,4 @@
-import { ButtonInteraction, ChatInputCommandInteraction, Events } from "discord.js";
+import { ButtonInteraction, ChatInputCommandInteraction, Events, ModalSubmitInteraction } from "discord.js";
 import Language from "../../../mongo/Language";
 import { EventListener, logger } from "@adobly/framework";
 import { client } from "../../..";
@@ -10,7 +10,7 @@ export default class InteractionCreateEventListener extends EventListener {
 		});
 	}
 
-	override async execute(interaction: ChatInputCommandInteraction | ButtonInteraction) {
+	override async execute(interaction: ChatInputCommandInteraction | ButtonInteraction | ModalSubmitInteraction) {
 		let locale: string;
 
 		const data = await Language.findOne({ GuildID: interaction.guildId });
@@ -45,6 +45,14 @@ export default class InteractionCreateEventListener extends EventListener {
 			if (!button) return client.buttons.delete(interaction.customId);
 
 			await button.execute(interaction, locale, client);
+		}
+
+		if (interaction.isModalSubmit()) {
+			const modal = client.modals.get(interaction.customId)!;
+
+			if (!modal) return client.modals.delete(interaction.customId);
+
+			await modal.execute(interaction, locale, client);
 		}
 
 		return;
