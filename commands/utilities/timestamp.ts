@@ -1,5 +1,5 @@
 import { ChatInputCommandInteraction, MessageFlags } from "discord.js";
-import { TimestampInteractionCommand } from "../../interactions/timestamp";
+import { TimestampInteractionCommand } from "../../interactions/commands/timestamp";
 import { Command } from "@adobly/framework";
 
 export class TimestampCommand extends Command<typeof TimestampInteractionCommand> {

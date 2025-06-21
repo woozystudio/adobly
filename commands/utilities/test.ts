@@ -1,5 +1,5 @@
 import { ActionRowBuilder, ButtonBuilder, ButtonStyle, ChatInputCommandInteraction } from "discord.js";
-import { TestInteractionCommand } from "../../interactions/test.js";
+import { TestInteractionCommand } from "../../interactions/commands/test.js";
 import { Command } from "@adobly/framework";
 
 export class TestCommand extends Command<typeof TestInteractionCommand> {

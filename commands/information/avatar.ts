@@ -1,6 +1,6 @@
 import { ChatInputCommandInteraction, EmbedBuilder, MessageFlags } from "discord.js";
 import { Command } from "@adobly/framework";
-import { AvatarInteractionCommand } from "../../interactions/avatar.js";
+import { AvatarInteractionCommand } from "../../interactions/commands/avatar.js";
 import i18next from "i18next";
 
 export class AvatarCommand extends Command<typeof AvatarInteractionCommand> {

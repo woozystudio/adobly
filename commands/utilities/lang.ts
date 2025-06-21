@@ -1,5 +1,5 @@
 import { ChatInputCommandInteraction } from "discord.js";
-import { LangInteractionCommand } from "../../interactions/lang.js";
+import { LangInteractionCommand } from "../../interactions/commands/lang.js";
 import Language from "../../mongo/Language.js";
 import SuccessEmbed from "../../embeds/SuccessEmbed.js";
 import i18next from "i18next";

@@ -1,5 +1,5 @@
 import { ChatInputCommandInteraction, Role } from "discord.js";
-import { SetupMuteInteractionSubCommand } from "../../../interactions/sub/setup-mute.js";
+import { SetupMuteInteractionSubCommand } from "../../../interactions/commands/sub/setup-mute.js";
 import i18next from "i18next";
 import Mute from "../../../mongo/Mute.js";
 import SuccessEmbed from "../../../embeds/SuccessEmbed.js";

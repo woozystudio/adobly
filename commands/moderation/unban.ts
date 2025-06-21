@@ -1,5 +1,5 @@
 import { ChatInputCommandInteraction } from "discord.js";
-import { UnbanInteractionCommand } from "../../interactions/unban.js";
+import { UnbanInteractionCommand } from "../../interactions/commands/unban.js";
 import ErrorEmbed from "../../embeds/ErrorEmbed.js";
 import i18next from "i18next";
 import SuccessEmbed from "../../embeds/SuccessEmbed.js";
