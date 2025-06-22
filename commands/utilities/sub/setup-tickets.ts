@@ -42,20 +42,18 @@ export class SetupTicketsSubCommand extends SubCommand<typeof SetupTicketsIntera
 				name: `${i18next.t("command.utility.setupticket.createembed.author", { lng: locale, guild_name: interaction.guild?.name })}`,
 			})
 			.setColor(0x00d26a)
-			.setDescription(
-				'¡Ya casi acabamos! Si deseas configurar el mensaje de creación de tickets, da click en el botón de "Configuración Avanzada". Abrirá un menu con las opciones para personalizar tu mensaje.',
-			)
+			.setDescription(`${i18next.t("command.utility.setupticket.configembed.description", { lng: locale })}`)
 			.setTimestamp();
 
 		const ConfigurationButtons = new ActionRowBuilder<ButtonBuilder>().addComponents(
 			new ButtonBuilder()
 				.setCustomId("tickets-configuration")
-				.setLabel("Configuración Avanzada")
+				.setLabel(`${i18next.t("command.utility.setupticket.buttons.config", { lng: locale })}`)
 				.setEmoji("⚙️")
 				.setStyle(ButtonStyle.Secondary),
 			new ButtonBuilder()
 				.setCustomId("tickets-sendmessage")
-				.setLabel("Mandar Mensaje")
+				.setLabel(`${i18next.t("command.utility.setupticket.buttons.sendmessage", { lng: locale })}`)
 				.setEmoji("✅")
 				.setStyle(ButtonStyle.Success),
 		);
