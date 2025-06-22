@@ -6,7 +6,7 @@ export const SetupInteractionCommand: CommandOptions = {
 	description: "Configure the bot systems on your server",
 	type: ApplicationCommandType.ChatInput,
 	userPermissions: PermissionFlagsBits.ManageGuild,
-	testOnly: true,
+	testOnly: false,
 	options: [
 		{
 			name: "tickets",
