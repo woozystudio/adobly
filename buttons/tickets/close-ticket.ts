@@ -17,7 +17,7 @@ export class CloseTicketButton extends Button<typeof CloseTicketInteractionButto
 
 		if (interaction.user.id === data?.CreatorID)
 			return interaction.reply(
-				ErrorEmbed.message(`${i18next.t("systems.tickets.errors.cannot_delete_own_ticket", { lng: locale })}`),
+				ErrorEmbed.message(`${i18next.t("command.common.errors.no_permissions", { lng: locale })}`),
 			);
 
 		const CloseEmbed = new EmbedBuilder()
