@@ -111,6 +111,21 @@
 			"success": "El ticket se creó correctamente en el canal {{- channel}}.",
 			"modal": {
 				"success": "La descripción del embed ha sido configurada correctamente, puedes proceder a mandar el mensaje."
+			},
+			"buttons": {
+				"sendmessage": {
+					"success": "El mensaje ha sido enviado correctamente al canal solicitado.",
+					"errors": {
+						"cannot_send_message": "No se pudo enviar el mensaje al canal seleccionado. Intenta más tarde..."
+					}
+				},
+				"config": {
+					"modal": {
+						"title": "Configuración Avanzada",
+						"label": "La descripción del mensaje:",
+						"placeholder": "Para usar la descripción default escribe: -"
+					}
+				}
 			}
 		}
 	}
