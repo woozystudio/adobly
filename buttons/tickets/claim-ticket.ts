@@ -22,7 +22,7 @@ export class ClaimTicketButton extends Button<typeof ClaimTicketInteractionButto
 
 		const ClaimEmbed = new EmbedBuilder()
 			.setDescription(
-				`\`📌\` > ${i18next.t("systems.tickets.claim", { lng: locale, moderator: `${interaction.user}` })}`,
+				`> \`📌\` ${i18next.t("systems.tickets.claim", { lng: locale, moderator: `${interaction.user}` })}`,
 			)
 			.setColor(0x00d26a);
 
