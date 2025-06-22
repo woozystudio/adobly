@@ -7,7 +7,6 @@ import {
 	EmbedBuilder,
 	MessageFlags,
 	PermissionFlagsBits,
-	TextChannel,
 } from "discord.js";
 import { Button } from "@adobly/framework";
 import { CreateTicketInteractionButton } from "../../interactions/buttons/create-ticket";
@@ -31,11 +30,12 @@ export class CreateTicketButton extends Button<typeof CreateTicketInteractionBut
 				`${i18next.t("command.common.errors.no_enabled_module", { lng: locale, module: Modules.Tickets })}`,
 			);
 
-		const interactionChannel = interaction.channel as TextChannel;
+		const parent = data.ParentID ? data.ParentID : null;
+
 		await interaction.guild?.channels
 			.create({
 				name: `${interaction.user.username}-ticket${ticketId}`,
-				parent: interactionChannel.parentId,
+				parent: parent,
 				type: ChannelType.GuildText,
 				permissionOverwrites: [
 					{
