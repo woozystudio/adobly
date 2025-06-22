@@ -1,4 +1,12 @@
-import { ButtonInteraction, EmbedBuilder, MessageFlags, TextChannel } from "discord.js";
+import {
+	ActionRowBuilder,
+	ButtonBuilder,
+	ButtonInteraction,
+	ButtonStyle,
+	EmbedBuilder,
+	MessageFlags,
+	TextChannel,
+} from "discord.js";
 import { Button } from "@adobly/framework";
 import { TicketsSendMessageInteractionButton } from "../../interactions/buttons/tickets-sendmessage";
 import TicketSetup from "../../mongo/TicketSetup";
@@ -23,12 +31,20 @@ export class TicketsSendMessageButton extends Button<typeof TicketsSendMessageIn
 			.setThumbnail(`${interaction.guild?.iconURL()}`)
 			.setColor("Blurple");
 
+		const CreateTicketButton = new ActionRowBuilder<ButtonBuilder>().addComponents(
+			new ButtonBuilder()
+				.setCustomId("create-ticket")
+				.setLabel(`${i18next.t("command.utility.setupticket.createbutton", { lng: locale })}`)
+				.setEmoji("📥")
+				.setStyle(ButtonStyle.Secondary),
+		);
+
 		if (!data.Description || data.Description === "-") {
 			CreateTicketEmbed.setDescription(
 				`${i18next.t("command.utility.setupticket.createembed.description", { lng: locale })}`,
 			);
 
-			await channel.send({ embeds: [CreateTicketEmbed] });
+			await channel.send({ embeds: [CreateTicketEmbed], components: [CreateTicketButton] });
 			return await interaction.reply({
 				content: `\`✅\` ${i18next.t("systems.tickets.buttons.sendmessage.success", { lng: locale })}`,
 				flags: MessageFlags.Ephemeral,
@@ -36,7 +52,7 @@ export class TicketsSendMessageButton extends Button<typeof TicketsSendMessageIn
 		} else if (data.Description) {
 			CreateTicketEmbed.setDescription(data.Description);
 
-			await channel.send({ embeds: [CreateTicketEmbed] });
+			await channel.send({ embeds: [CreateTicketEmbed], components: [CreateTicketButton] });
 			return await interaction.reply({
 				content: `\`✅\` ${i18next.t("systems.tickets.buttons.sendmessage.success", { lng: locale })}`,
 				flags: MessageFlags.Ephemeral,
