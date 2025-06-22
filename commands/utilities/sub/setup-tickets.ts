@@ -2,7 +2,6 @@ import {
 	ActionRowBuilder,
 	ButtonBuilder,
 	ButtonStyle,
-	CategoryChannel,
 	ChatInputCommandInteraction,
 	EmbedBuilder,
 	MessageFlags,
@@ -20,7 +19,7 @@ export class SetupTicketsSubCommand extends SubCommand<typeof SetupTicketsIntera
 
 	override async chatInput(interaction: ChatInputCommandInteraction, locale: string) {
 		const channel = interaction.options.getChannel("channel") as TextChannel;
-		const category = interaction.options.getChannel("category") as CategoryChannel;
+		const category = interaction.options.getChannel("category") || null;
 
 		let data = await TicketSetup.findOne({ GuildID: interaction.guildId }, { new: true, upsert: true });
 
@@ -28,13 +27,13 @@ export class SetupTicketsSubCommand extends SubCommand<typeof SetupTicketsIntera
 			data = await TicketSetup.create({
 				GuildID: interaction.guildId,
 				ChannelID: channel.id,
-				ParentID: category.id,
+				ParentID: category?.id,
 			});
 		} else {
 			await TicketSetup.findOneAndUpdate({
 				GuildID: interaction.guildId,
 				ChannelID: channel.id,
-				ParentID: category.id,
+				ParentID: category?.id,
 			});
 		}
 

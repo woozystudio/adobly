@@ -25,7 +25,7 @@ export const SetupInteractionCommand: CommandOptions = {
 					description: "Select the category where the tickets will be created.",
 					type: ApplicationCommandOptionType.Channel,
 					channel_types: [ChannelType.GuildCategory],
-					required: true,
+					required: false,
 				},
 			],
 		},
