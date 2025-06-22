@@ -126,6 +126,9 @@
 						"placeholder": "Para usar la descripción default escribe: -"
 					}
 				}
+			},
+			"errors": {
+				"cannot_delete_own_ticket": "No puedes eliminar tu propio ticket, espera a que un moderador lo elimine. ¡Gracias!"
 			}
 		}
 	}
