@@ -5,6 +5,7 @@ import {
 	CategoryChannel,
 	ChatInputCommandInteraction,
 	EmbedBuilder,
+	MessageFlags,
 	TextChannel,
 } from "discord.js";
 import { SubCommand } from "@adobly/framework";
@@ -58,7 +59,11 @@ export class SetupTicketsSubCommand extends SubCommand<typeof SetupTicketsIntera
 				.setStyle(ButtonStyle.Success),
 		);
 
-		await interaction.reply({ embeds: [ConfigurationEmbed], components: [ConfigurationButtons] });
+		await interaction.reply({
+			embeds: [ConfigurationEmbed],
+			components: [ConfigurationButtons],
+			flags: MessageFlags.Ephemeral,
+		});
 	}
 }
 
