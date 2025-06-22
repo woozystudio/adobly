@@ -1,5 +1,5 @@
 import { ChatInputCommandInteraction, GuildMember, User } from "discord.js";
-import { BanInteractionCommand } from "../../interactions/ban.js";
+import { BanInteractionCommand } from "../../interactions/commands/ban.js";
 import ErrorEmbed from "../../embeds/ErrorEmbed.js";
 import i18next from "i18next";
 import SuccessEmbed from "../../embeds/SuccessEmbed.js";

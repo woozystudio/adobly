@@ -1,5 +1,5 @@
 import { ChatInputCommandInteraction, GuildMember, User } from "discord.js";
-import { KickInteractionCommand } from "../../interactions/kick.js";
+import { KickInteractionCommand } from "../../interactions/commands/kick.js";
 import ErrorEmbed from "../../embeds/ErrorEmbed.js";
 import i18next from "i18next";
 import SuccessEmbed from "../../embeds/SuccessEmbed.js";

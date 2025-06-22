@@ -1,18 +1,4 @@
-import {
-	ActionRowBuilder,
-	ButtonBuilder,
-	ButtonInteraction,
-	ButtonStyle,
-	ChannelType,
-	ChatInputCommandInteraction,
-	EmbedBuilder,
-	Events,
-	GuildMember,
-	MessageFlags,
-	PermissionFlagsBits,
-	TextChannel,
-} from "discord.js";
-import i18next from "i18next";
+import { ButtonInteraction, ChatInputCommandInteraction, Events, ModalSubmitInteraction } from "discord.js";
 import Language from "../../../mongo/Language";
 import { EventListener, logger } from "@adobly/framework";
 import { client } from "../../..";
@@ -24,7 +10,7 @@ export default class InteractionCreateEventListener extends EventListener {
 		});
 	}
 
-	override async execute(interaction: ChatInputCommandInteraction | ButtonInteraction) {
+	override async execute(interaction: ChatInputCommandInteraction | ButtonInteraction | ModalSubmitInteraction) {
 		let locale: string;
 
 		const data = await Language.findOne({ GuildID: interaction.guildId });
@@ -51,106 +37,24 @@ export default class InteractionCreateEventListener extends EventListener {
 			} catch (error) {
 				return logger.error(`Command ${interaction.commandName} not found.`, error);
 			}
-		} else if (interaction.isButton()) {
-			if (interaction.customId === "create-ticket") {
-				const interactionChannel = interaction.channel as TextChannel;
-				const channel = (await interaction.guild?.channels.create({
-					name: `ticket-${interaction.user.username}`,
-					parent: interactionChannel.parentId,
-					type: ChannelType.GuildText,
-					permissionOverwrites: [
-						{
-							id: `${interaction.guildId}`,
-							deny: [
-								PermissionFlagsBits.SendMessages,
-								PermissionFlagsBits.ViewChannel,
-								PermissionFlagsBits.ReadMessageHistory,
-							],
-						},
-						{
-							id: interaction.user.id,
-							allow: [
-								PermissionFlagsBits.SendMessages,
-								PermissionFlagsBits.ViewChannel,
-								PermissionFlagsBits.ReadMessageHistory,
-							],
-						},
-					],
-				})) as TextChannel;
+		}
 
-				const CreatedTicketEmbed = new EmbedBuilder()
-					.setTitle(`${i18next.t("systems.tickets.embeds.ticketcreated.title", { lng: locale })}`)
-					.setColor(0xa9d0ff)
-					.setDescription(`${i18next.t("systems.tickets.embeds.ticketcreated.description", { lng: locale })}`)
-					.setFooter({
-						iconURL: `${interaction.guild?.iconURL()}`,
-						text: `${i18next.t("systems.tickets.embeds.ticketcreated.footer", { lng: locale, guild_name: interaction.guild?.name })}`,
-					})
-					.setTimestamp();
+		if (interaction.isButton()) {
+			const button = client.buttons.get(interaction.customId)!;
 
-				const TicketManagerButtons = new ActionRowBuilder<ButtonBuilder>().addComponents(
-					new ButtonBuilder()
-						.setCustomId("close-ticket")
-						.setLabel(`${i18next.t("systems.tickets.closebutton", { lng: locale })}`)
-						.setEmoji("🔒")
-						.setStyle(ButtonStyle.Secondary),
-				);
+			if (!button) return client.buttons.delete(interaction.customId);
 
-				channel.send({
-					content: `${interaction.user}`,
-					embeds: [CreatedTicketEmbed],
-					components: [TicketManagerButtons],
-				});
+			await button.execute(interaction, locale, client);
+		}
 
-				return interaction.reply({
-					content: `${i18next.t("systems.tickets.success", { lng: locale, channel: `${channel}` })}`,
-					flags: MessageFlags.Ephemeral,
-				});
-			} else if (interaction.customId === "close-ticket") {
-				const interactionChannel = interaction.channel as TextChannel;
-				const member = (await interaction.guild?.members.fetch(interaction.user)) as GuildMember;
-				if (!member?.permissions.has(PermissionFlagsBits.ManageChannels))
-					return interaction.reply({
-						content: `${i18next.t("command.common.errors.no_permissions", { lng: locale })}`,
-						flags: "Ephemeral",
-					});
+		if (interaction.isModalSubmit()) {
+			const modal = client.modals.get(interaction.customId)!;
 
-				const CloseEmbed = new EmbedBuilder()
-					.setDescription(`${i18next.t("systems.tickets.embeds.closing", { lng: locale })}`)
-					.setColor("Blurple");
+			if (!modal) return client.modals.delete(interaction.customId);
 
-				setTimeout(() => {
-					interactionChannel.delete();
-				}, 5000);
+			await modal.execute(interaction, locale, client);
+		}
 
-				return interaction.reply({ embeds: [CloseEmbed] });
-			} else if (interaction.customId.startsWith("autorole-")) {
-				const roleId = interaction.customId.split("-")[2] as string;
-				const role = interaction.guild?.roles.cache.get(roleId);
-
-				if (!role) {
-					return interaction.reply({
-						content: i18next.t("command.common.errors.no_role", { lng: locale }),
-						flags: MessageFlags.Ephemeral,
-					});
-				}
-
-				const member = interaction.member as GuildMember;
-
-				if (member.roles.cache.has(role.id)) {
-					await member.roles.remove(role);
-					return interaction.reply({
-						content: `\`✅\` ${i18next.t("command.utility.autoroles.remove.success", { lng: locale, role: `${role}` })}`,
-						flags: MessageFlags.Ephemeral,
-					});
-				} else {
-					await member.roles.add(role);
-					return interaction.reply({
-						content: `\`✅\` ${i18next.t("command.utility.autoroles.add.success", { lng: locale, role: `${role}` })}`,
-						flags: MessageFlags.Ephemeral,
-					});
-				}
-			} else return;
-		} else return;
+		return;
 	}
 }

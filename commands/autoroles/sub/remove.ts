@@ -7,7 +7,7 @@ import {
 	Role,
 	TextChannel,
 } from "discord.js";
-import { AutoRolesRemoveInteractionSubCommand } from "../../../interactions/sub/autoroles-remove";
+import { AutoRolesRemoveInteractionSubCommand } from "../../../interactions/commands/sub/autoroles-remove";
 import AutoRolesSetup from "../../../mongo/AutoRolesSetup";
 import ErrorEmbed from "../../../embeds/ErrorEmbed";
 import i18next from "i18next";

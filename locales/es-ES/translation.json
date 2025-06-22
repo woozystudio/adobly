@@ -37,7 +37,13 @@
 					"description": "`❓` **¿Qué es un ticket?**\n> Los tickets son un método de comunicación entre el equipo de soporte del servidor y el usuario, por medio de estos te pueden ayudar con cualquier problema o pregunta que tengas. ¡No tengas miedo de preguntar!"
 				},
 				"createbutton": "Crear Ticket",
-				"success": "`✅` El mensaje para crear tickets se envió correctamente."
+				"configembed": {
+					"description": "¡Ya casi acabamos! Si deseas configurar el mensaje de creación de tickets, da click en el botón de \"Configuración Avanzada\". Abrirá un menu con las opciones para personalizar tu mensaje."
+				},
+				"buttons": {
+					"config": "Configuración Avanzada",
+					"sendmessage": "Mandar mensaje"
+				}
 			},
 			"lang": {
 				"success": "El idioma del bot se ha establecido a `{{lang}}`.",
@@ -99,10 +105,33 @@
 					"description": "Un miembro del personal se pondrá en contacto contigo en breve, por favor sé paciente. Si es posible, déjanos tu problema o duda para una atención más rápida y eficaz.",
 					"footer": "Administración de {{guild_name}}"
 				},
-				"closing": "`🔨` El ticket será eliminado, gracias!"
+				"closing": "El ticket será eliminado. Gracias por tu servicio."
 			},
 			"closebutton": "Cerrar Ticket",
-			"success": "`✅` El ticket se creó correctamente en el canal {{- channel}}."
+			"success": "El ticket se creó correctamente en el canal {{- channel}}.",
+			"modal": {
+				"success": "La descripción del embed ha sido configurada correctamente, puedes proceder a mandar el mensaje."
+			},
+			"buttons": {
+				"sendmessage": {
+					"success": "El mensaje ha sido enviado correctamente al canal solicitado.",
+					"errors": {
+						"cannot_send_message": "No se pudo enviar el mensaje al canal seleccionado. Intenta más tarde..."
+					}
+				},
+				"config": {
+					"modal": {
+						"title": "Configuración Avanzada",
+						"label": "La descripción del mensaje:",
+						"placeholder": "Para usar la descripción default escribe: -"
+					}
+				}
+			},
+			"errors": {
+				"cannot_delete_own_ticket": "No puedes eliminar tu propio ticket, espera a que un moderador lo elimine. ¡Gracias!"
+			},
+			"claim": "Desde ahora {{moderator}} se encargará de atender esta solicitud.",
+			"claimbutton": "Claim"
 		}
 	}
 }

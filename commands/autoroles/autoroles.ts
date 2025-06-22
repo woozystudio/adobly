@@ -1,5 +1,5 @@
 import { ChatInputCommandInteraction } from "discord.js";
-import { AutoRolesInteractionCommand } from "../../interactions/autoroles";
+import { AutoRolesInteractionCommand } from "../../interactions/commands/autoroles";
 import { Command } from "@adobly/framework";
 
 export class AutoRolesCommand extends Command<typeof AutoRolesInteractionCommand> {

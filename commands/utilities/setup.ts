@@ -1,5 +1,5 @@
 import { ChatInputCommandInteraction } from "discord.js";
-import { SetupInteractionCommand } from "../../interactions/setup.js";
+import { SetupInteractionCommand } from "../../interactions/commands/setup.js";
 import { Command } from "@adobly/framework";
 
 export class SetupCommand extends Command<typeof SetupInteractionCommand> {

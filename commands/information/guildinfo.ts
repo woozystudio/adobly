@@ -1,6 +1,6 @@
 import { ChatInputCommandInteraction, codeBlock, EmbedBuilder, Guild, MessageFlags, time } from "discord.js";
 import { Command } from "@adobly/framework";
-import { GuildInfoInteractionCommand } from "../../interactions/guildinfo.js";
+import { GuildInfoInteractionCommand } from "../../interactions/commands/guildinfo.js";
 import i18next from "i18next";
 
 export class GuildInfoCommand extends Command<typeof GuildInfoInteractionCommand> {

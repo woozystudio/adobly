@@ -1,5 +1,5 @@
 import { ChatInputCommandInteraction, MessageFlags } from "discord.js";
-import { PingInteractionCommand } from "../../interactions/ping.js";
+import { PingInteractionCommand } from "../../interactions/commands/ping.js";
 import { AdoblyClient, Command } from "@adobly/framework";
 
 export class PingCommand extends Command<typeof PingInteractionCommand> {

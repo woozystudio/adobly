@@ -1,5 +1,5 @@
 import { ChatInputCommandInteraction } from "discord.js";
-import { SetupAutoRolesInteractionSubCommand } from "../../interactions/sub/setup-autoroles.js";
+import { SetupAutoRolesInteractionSubCommand } from "../../interactions/commands/sub/setup-autoroles.js";
 import i18next from "i18next";
 import { SubCommand } from "@adobly/framework";
 
