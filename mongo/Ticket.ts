@@ -7,6 +7,8 @@ let Ticket = new Schema({
 	CreatorID: String,
 	TicketID: String,
 	Closed: Boolean,
+	Claimed: Boolean,
+	ClaimedBy: String,
 });
 
 export default model("ticket", Ticket);
