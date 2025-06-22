@@ -73,6 +73,11 @@ export class CreateTicketButton extends Button<typeof CreateTicketInteractionBut
 						.setLabel(`${i18next.t("systems.tickets.closebutton", { lng: locale })}`)
 						.setEmoji("🔒")
 						.setStyle(ButtonStyle.Secondary),
+					new ButtonBuilder()
+						.setCustomId("claim-ticket")
+						.setLabel(`${i18next.t("systems.tickets.claimbutton", { lng: locale })}`)
+						.setEmoji("📌")
+						.setStyle(ButtonStyle.Secondary),
 				);
 
 				await Ticket.create({
