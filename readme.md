@@ -1,16 +1,16 @@
 # Adobly
 
-Adobly planea ser uno de los bots más eficientes para gestión de servidores en su totalidad. Actualmente cuenta con un sistema de tickets básico y próximamente un sistema de moderación ideal para equipos de soporte.
+Adobly plans to be one of the most efficient bots for server management as a whole. It currently has a basic ticketing system and soon a moderation system ideal for support teams.
 
-El archivo para contribuciones se creará dentro de poco para deliminar reglas que se deberán cumplir durante la aportación al bot. Por ahora, sí se pueden hacer contribuciones de manera libre, no se preocupen.
+The contribution file will be created shortly to delineate rules that must be followed when contributing to the bot. For now, contributions can be made freely, don't worry.
 
-## Versión
+## Version
 
-Versión actual: v1.4.0
+Current version: v1.4.0
 
-## Autor
+## Author
 
 **Adobly** © [WoozyStudio](https://woozystudio.com).  
-Autoría y mantenimiento por WoozyStudio.
+Authored and maintained by WoozyStudio.
 
 > GitHub [@WoozyStudio](https://github.com/woozystudio)
