@@ -1,5 +1,5 @@
 import { Modal, ModalOptions } from "@adobly/framework";
-import { TicketsConfigurationModal } from "./tickets/tickets-configuration";
+import { TicketsConfigurationModal } from "./tickets/tickets-configuration.js";
 
 export class ModalManager {
 	buttons: Modal<ModalOptions>[] = [new TicketsConfigurationModal()];

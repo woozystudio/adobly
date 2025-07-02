@@ -1,0 +1,13 @@
+# Generated output
+dist/
+
+# IDE
+.vscode/
+
+# Docker
+Dockerfile
+docker-compose.debug.yml
+docker-compose.yml
+
+# Packages
+node_modules/

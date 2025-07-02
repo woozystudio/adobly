@@ -1,8 +1,8 @@
 import { ClientEvents } from "discord.js";
 import { EventManager } from "@adobly/framework";
-import ReadyEventListener from "./ready/ready";
-import InteractionCreateEventListener from "./interactionCreate/interactionCreate";
-import { client } from "../..";
+import ReadyEventListener from "./ready/ready.js";
+import InteractionCreateEventListener from "./interactionCreate/interactionCreate.js";
+import { client } from "../../index.js";
 
 export default class DiscordEventManager extends EventManager {
 	public override subscribe() {

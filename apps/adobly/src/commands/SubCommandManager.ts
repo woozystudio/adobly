@@ -1,9 +1,9 @@
 import { SubCommand, SubCommandOptions } from "@adobly/framework";
-import SetupMuteSubCommand from "./utilities/sub/setup-mute";
-import SetupTicketsSubCommand from "./utilities/sub/setup-tickets";
-import SetupAutoRolesSubCommand from "./autoroles/setup-autoroles";
-import { AutoRolesAddSubCommand } from "./autoroles/sub/add";
-import { AutoRolesRemoveSubCommand } from "./autoroles/sub/remove";
+import SetupMuteSubCommand from "./utilities/sub/setup-mute.js";
+import SetupTicketsSubCommand from "./utilities/sub/setup-tickets.js";
+import SetupAutoRolesSubCommand from "./autoroles/setup-autoroles.js";
+import { AutoRolesAddSubCommand } from "./autoroles/sub/add.js";
+import { AutoRolesRemoveSubCommand } from "./autoroles/sub/remove.js";
 
 export class SubCommandManager {
 	subCommands: SubCommand<SubCommandOptions>[] = [
