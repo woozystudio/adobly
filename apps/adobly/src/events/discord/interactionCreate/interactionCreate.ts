@@ -1,7 +1,7 @@
 import { ButtonInteraction, ChatInputCommandInteraction, Events, ModalSubmitInteraction } from "discord.js";
 import Language from "../../../mongo/Language";
 import { EventListener, logger } from "@adobly/framework";
-import { client } from "../../..";
+import { client } from "../../../index.js";
 
 export default class InteractionCreateEventListener extends EventListener {
 	constructor() {

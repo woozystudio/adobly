@@ -1,4 +1,4 @@
-import EmbedWrapper from "./EmbedWrapper";
+import EmbedWrapper from "./EmbedWrapper.js";
 
 export default class ErrorEmbed extends EmbedWrapper {
 	/**
