@@ -2,7 +2,9 @@
   "name": "@adobly/adobly",
   "version": "0.0.0",
   "description": "",
-  "scripts": {},
+  "scripts": {
+    "build": "yarn workspaces foreach -Apt run build"
+  },
   "type": "module",
   "keywords": [],
   "author": "WoozyStudio <woozystudiocontact@gmail.com>",
@@ -12,7 +14,7 @@
     "@types/node": "22.14.1",
     "tsc-watch": "6.2.1",
     "tslib": "2.8.1",
-    "typescript": "5.8.3"
+    "typescript": "^5.8.3"
   },
   "engines": {
     "node": ">=18.0.0"
@@ -21,5 +23,5 @@
     "apps/*",
     "packages/*"
   ],
-  "packageManager": "yarn@1.22.22"
+  "packageManager": "yarn@4.9.2"
 }
