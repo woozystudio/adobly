@@ -4,7 +4,7 @@ ENV NODE_ENV=production
 
 WORKDIR /usr/src/app
 
-COPY ["package.json", ".npmrc", "./"]
+COPY ["package.json", "./"]
 
 RUN npm install --production
 
@@ -18,4 +18,4 @@ RUN chown -R node /usr/src/app
 
 USER node
 
-CMD ["npm", "start"]
+CMD ["yarn", "start"]
