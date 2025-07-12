@@ -3,7 +3,8 @@
 	"version": "0.0.0",
 	"description": "",
 	"scripts": {
-		"build": "yarn workspaces foreach -Apt run build"
+		"build": "yarn workspaces foreach -Apt run build",
+		"start": "yarn workspace adobly start"
 	},
 	"type": "module",
 	"keywords": [],
