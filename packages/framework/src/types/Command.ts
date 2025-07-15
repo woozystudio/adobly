@@ -6,5 +6,6 @@ export type CommandPayload = {
 	type: ApplicationCommandType;
 	userPermissions?: bigint | bigint[];
 	options?: ApplicationCommandOptionData[];
-	testOnly: boolean;
+	testMode: boolean;
+	deleted?: boolean;
 };

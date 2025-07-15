@@ -8,7 +8,8 @@ export abstract class Command<C extends CommandPayload> {
 	public readonly type: ApplicationCommandType;
 	public readonly userPermissions?: bigint | bigint[];
 	public readonly options?: ApplicationCommandOptionData[];
-	public readonly testOnly: boolean;
+	public readonly testMode: boolean;
+	public readonly deleted?: boolean;
 
 	protected constructor(options: C) {
 		this.name = options.name;
@@ -16,7 +17,8 @@ export abstract class Command<C extends CommandPayload> {
 		this.type = options.type;
 		this.userPermissions = options.userPermissions;
 		this.options = options.options;
-		this.testOnly = options.testOnly;
+		this.testMode = options.testMode;
+		this.deleted = options.deleted;
 	}
 
 	public abstract chatInput(
