@@ -4,7 +4,9 @@
 	"description": "",
 	"scripts": {
 		"build": "yarn workspaces foreach -Apt run build",
-		"start": "yarn workspace adobly start"
+		"start": "yarn workspace adobly start",
+		"dev": "yarn workspace adobly dev",
+		"deploy:commands": "yarn workspace adobly deploy:commands"
 	},
 	"type": "module",
 	"keywords": [],
