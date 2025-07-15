@@ -9,6 +9,10 @@ export class AdoblyClient {
 	public testGuildID: string;
 	public intents: BitFieldResolvable<GatewayIntentsString, number> = [];
 	public presence?: PresenceData;
+
+	public commandsPath?: string;
+	public eventsPath?: string;
+
 	#client;
 
 	public commands: Collection<string, Command<CommandPayload>> = new Collection();
@@ -19,12 +23,16 @@ export class AdoblyClient {
 		testGuildId,
 		intents,
 		presence,
+		commandsPath,
+		eventsPath,
 	}: {
 		token: string;
 		id: string;
 		testGuildId: string;
 		intents: BitFieldResolvable<GatewayIntentsString, number>;
 		presence?: PresenceData;
+		commandsPath?: string;
+		eventsPath?: string;
 	}) {
 		this.#client = new Client({
 			intents: intents,
@@ -34,6 +42,8 @@ export class AdoblyClient {
 		this.token = token;
 		this.testGuildID = testGuildId;
 		this.presence = presence;
+		this.commandsPath = commandsPath;
+		this.eventsPath = eventsPath;
 
 		dotenv.config();
 	}
