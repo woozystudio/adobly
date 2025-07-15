@@ -7,7 +7,9 @@
 		"build:check": "tsc --noEmit",
 		"build:esm": "swc ./src --out-dir ./dist",
 		"build": "yarn workspace @adobly/framework run build && yarn build:clean && yarn build:check && yarn build:esm",
-		"start": "env-cmd node --enable-source-maps dist/index.js"
+		"start": "env-cmd node --enable-source-maps dist/index.js",
+		"dev": "yarn build && yarn deploy:commands && yarn start",
+		"deploy:commands": "env-cmd node --enable-source-maps dist/deploy.js"
 	},
 	"type": "module",
 	"directories": {
@@ -20,7 +22,8 @@
 	"dependencies": {
 		"@adobly/framework": "workspace:^",
 		"discord.js": "14.21.0",
-		"env-cmd": "10.1.0"
+		"env-cmd": "10.1.0",
+		"path": "0.12.7"
 	},
 	"devDependencies": {
 		"@swc/cli": "0.1.63",
