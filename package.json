@@ -1,53 +1,30 @@
 {
-	"name": "adobly",
-	"version": "1.4.0",
+	"name": "@adobly/adobly",
+	"version": "0.0.0",
 	"description": "",
 	"scripts": {
-		"build:clean": "del-cli dist/*",
-		"build:check": "tsc --noEmit",
-		"build:compile": "tsc --build",
-		"build:copy-locales": "cpy locales/ dist/",
-		"build": "npm run build:clean && npm run build:check && npm run build:compile && npm run build:copy-locales",
-		"lint": "prettier --check . && oxlint",
-		"format": "prettier --write .",
-		"start": "npm run build && node --enable-source-maps dist/index.js",
-		"watch": "tsc-watch --onSuccess \"npm run start\"",
-		"docker:build": "docker build -t adobly .",
-		"docker:start": "docker compose up -d",
-		"docker:logs": "docker logs -f adobly",
-		"docker:stop": "docker compose down"
+		"build": "yarn workspaces foreach -Apt run build",
+		"start": "yarn workspace adobly start",
+		"dev": "yarn workspace adobly dev",
+		"deploy:commands": "yarn workspace adobly deploy:commands"
 	},
+	"type": "module",
 	"keywords": [],
 	"author": "WoozyStudio <woozystudiocontact@gmail.com>",
 	"license": "MIT",
 	"private": true,
-	"dependencies": {
-		"@adobly/framework": "0.6.2",
-		"@discordjs/rest": "2.4.3",
-		"cpy-cli": "5.0.0",
-		"del-cli": "6.0.0",
-		"discord-api-types": "0.37.120",
-		"discord.js": "14.20.0",
-		"dotenv": "16.5.0",
-		"fs": "0.0.1-security",
-		"glob": "11.0.1",
-		"i18next": "25.0.1",
-		"i18next-fs-backend": "2.6.0",
-		"mongoose": "8.13.3",
-		"oxlint": "0.16.6",
-		"path": "0.12.7",
-		"pino": "9.6.0",
-		"pino-pretty": "13.0.0",
-		"prettier": "3.5.3"
-	},
 	"devDependencies": {
 		"@types/node": "22.14.1",
 		"tsc-watch": "6.2.1",
 		"tslib": "2.8.1",
-		"typescript": "5.8.3"
+		"typescript": "^5.8.3"
 	},
 	"engines": {
 		"node": ">=18.0.0"
 	},
-	"packageManager": "yarn@1.22.22"
+	"workspaces": [
+		"apps/*",
+		"packages/*"
+	],
+	"packageManager": "yarn@4.9.2"
 }
