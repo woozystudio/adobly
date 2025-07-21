@@ -9,7 +9,7 @@
 		"build": "yarn workspace @adobly/framework run build && yarn build:clean && yarn build:check && yarn build:esm",
 		"start": "env-cmd node --enable-source-maps dist/index.js",
 		"dev": "yarn build && yarn deploy:commands && yarn start",
-		"deploy:commands": "env-cmd node --enable-source-maps dist/deploy.js"
+		"deploy:commands": "yarn build && env-cmd node --enable-source-maps dist/deploy.js"
 	},
 	"type": "module",
 	"directories": {
