@@ -8,6 +8,10 @@ export default class PingCommand extends Command<typeof pingCommand> {
 	}
 
 	public async chatInput(interaction: ChatInputCommandInteraction) {
-		await interaction.reply("Pong!");
+		await interaction.reply(
+			`Bot latency: ${Date.now() - interaction.createdTimestamp}ms\nAPI latency: ${Math.round(
+				interaction.client.ws.ping,
+			)}ms`,
+		);
 	}
 }
