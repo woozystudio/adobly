@@ -6,6 +6,7 @@ import { fileURLToPath } from "url";
 dotenv.config();
 
 const commandsPath = path.join(path.dirname(fileURLToPath(import.meta.url)), "commands");
+const eventsPath = path.join(path.dirname(fileURLToPath(import.meta.url)), "events");
 
 export const client = new AdoblyClient({
 	/* Bot Configuration */
@@ -21,6 +22,7 @@ export const client = new AdoblyClient({
 
 	/* Handler Configuration */
 	commandsPath: commandsPath,
+	eventsPath: eventsPath,
 });
 
 client.start();
