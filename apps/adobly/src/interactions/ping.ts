@@ -5,5 +5,5 @@ export const pingCommand: CommandPayload = {
 	name: "ping",
 	description: "Replies with Pong!",
 	type: ApplicationCommandType.ChatInput,
-	testMode: true,
+	testMode: false,
 };
