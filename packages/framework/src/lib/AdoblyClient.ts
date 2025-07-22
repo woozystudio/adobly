@@ -2,6 +2,8 @@ import { BitFieldResolvable, Client, Collection, GatewayIntentsString, PresenceD
 import dotenv from "dotenv";
 import { Command } from "./structures/Command.js";
 import { CommandPayload } from "../types/Command.js";
+import { eventHandler } from "./handlers/eventHandler.js";
+import { registerApplicationCommands } from "./utils/registerApplicationCommands.js";
 
 export class AdoblyClient {
 	public token: string;
@@ -54,6 +56,8 @@ export class AdoblyClient {
 
 	public async start(): Promise<void> {
 		try {
+			await eventHandler(this);
+			await registerApplicationCommands(this, this.testGuildID);
 			await this.#client.login(this.token);
 			if (this.presence) {
 				this.#client.user?.setPresence(this.presence as PresenceData);
