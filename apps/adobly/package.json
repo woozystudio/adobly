@@ -6,10 +6,11 @@
 		"build:clean": "del-cli dist",
 		"build:check": "tsc --noEmit",
 		"build:esm": "swc ./src --out-dir ./dist",
-		"build": "yarn workspace @adobly/framework run build && yarn build:clean && yarn build:check && yarn build:esm",
+		"build:bot": "yarn build:clean && yarn build:check && yarn build:esm",
+		"build": "yarn workspace @adobly/framework run build && yarn build:bot",
 		"start": "env-cmd node --enable-source-maps dist/index.js",
-		"dev": "yarn build && yarn deploy:commands && yarn start",
-		"deploy:commands": "yarn build && env-cmd node --enable-source-maps dist/deploy.js"
+		"dev": "yarn build && yarn start",
+		"deploy:commands": "yarn build:bot && env-cmd node --enable-source-maps dist/deploy.js"
 	},
 	"type": "module",
 	"directories": {
